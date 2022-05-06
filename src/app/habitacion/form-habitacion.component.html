@@ -1,43 +1,182 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()">
     <div class="card-body">
-      <h5 class="card-title">
+      <h2 class="card-title">
         {{ titulo }}
-      </h5>
+      </h2>
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="tipo_habitacion" class="col-form-label col-sm-12"></label>
-          <input
-            type="text"
-            class="form-control"
-            name="tipo_habitacion"
-            [(ngModel)]="habitacion.tipo_habitacion"
-            placeholder="tipo_habitacion"
-          />
-          <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
-          <!-- <span class="text-danger ml-2" *ngIf="
+        <!--Tipo de habitación-->
+        <div class="form-group col-md-4">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              size="75"
+              style="width: 300px; height: 98px"
+            >
+              <mat-label>Tipo de habitación</mat-label>
+              <input
+                matInput
+                placeholder=""
+                class="form-control"
+                name="tipo_habitacion"
+                [(ngModel)]="habitacion.tipo_habitacion"
+              />
+            </mat-form-field>
+          </p>
+        </div>
+        <br />
+        <!--Número de habitación-->
+        <div class="form-group col-md-4">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              size="75"
+              style="width: 300px; height: 98px"
+            >
+              <mat-label>N° de habitación</mat-label>
+              <input
+                matInput
+                placeholder=""
+                class="form-control"
+                name="numero_de_habitacion"
+                [(ngModel)]="habitacion.numero_habitacion"
+              />
+            </mat-form-field>
+          </p>
+        </div>
+        <!--Número de piso-->
+        <div class="form-group col-md-4">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              size="75"
+              style="width: 300px; height: 98px"
+            >
+              <mat-label>N° de piso</mat-label>
+              <input
+                matInput
+                placeholder=""
+                class="form-control"
+                name="numero_de_piso"
+                [(ngModel)]="habitacion.numero_piso"
+              />
+            </mat-form-field>
+          </p>
+        </div>
+      </div>
+      <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
+      <!-- <span class="text-danger ml-2" *ngIf="
 registroForm.get('nombres')?.hasError('required') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span>
             <span class="text-danger ml-2" *ngIf="
 registroForm.get('nombres')?.hasError('minlength') &&
 registroForm.get('nombres')?.touched
-">El nombre es requerido</span> -->
-        </div>
+">El nombre es requerido</span> 
+   
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Nombre</mat-label>
+      <input matInput placeholder="" />
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+  </p>-->
+
+      <!--Descripción de la habitación-->
+      <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="descripcion_habitacion" class="col-form-label col-sm-12"
-            >Descripcion de Habitacion</label
-          >
+          <p>
+            <mat-form-field
+              appearance="standard"
+              size="75"
+              style="width: 500px; height: 98px"
+            >
+              <mat-label>Descripción de la habitación</mat-label>
+              <textarea
+                matInput
+                placeholder=""
+                class="form-control"
+                name="descripcion_habitacion"
+                [(ngModel)]="habitacion.descripcion_habitacion"
+              >
+              </textarea>
+            </mat-form-field>
+          </p>
+        </div>
+        <!--Caracteristicas de la habitación-->
+        <div class="form-group col-md-6">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              size="75"
+              style="width: 500px; height: 98px"
+            >
+              <mat-label>Caracteristicas de la habitación</mat-label>
+              <textarea
+                matInput
+                placeholder=""
+                class="form-control"
+                name="caracteristicas"
+                [(ngModel)]="habitacion.caracteristicas"
+              ></textarea>
+            </mat-form-field>
+          </p>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              floatLabel="always"
+              size="75"
+              style="width: 300px; height: 98px"
+            >
+              <mat-label>Precio 24h</mat-label>
+              <input
+                matInput
+                type="number"
+                class="example-right-align"
+                name="precio"
+                [(ngModel)]="habitacion.precio"
+              />
+              <span matPrefix>$&nbsp;</span>
+              <span matSuffix></span>
+            </mat-form-field>
+          </p>
+        </div>
+
+        <!--Checkbox (ni se para que es)-->
+        <div class="form-group col-md-6">
           <input
-            type="text"
+            style="width: auto; height: auto"
+            type="checkbox"
             class="form-control"
-            name="descripcion_habitacion"
-            [(ngModel)]="habitacion.descripcion_habitacion"
-            placeholder="descripcion_habitacion"
+            name="estado_habitacion"
+            [(ngModel)]="habitacion.estado_habitacion"
           />
         </div>
       </div>
-      <div class="form-row">
+
+      <!--botons-->
+      <button
+        mat-raised-button
+        style="background-color: skyblue"
+        class="btn-guardar"
+        (click)="create()"
+        *ngIf="!habitacion.id; else elseBlock"
+      >
+        Registrar
+      </button>
+      <ng-template #elseBlock>
+        <button class="btn-guardar" (click)="update()">Actualizar</button>
+      </ng-template>
+    </div>
+  </form>
+</div>
+
+<!--<div class="form-row">
         <div class="form-group col-md-6">
           <label for="caracteristicas" class="col-form-label col-sm-12"
             >Caracteristicas</label
@@ -48,9 +187,9 @@ registroForm.get('nombres')?.touched
             name="caracteristicas"
             [(ngModel)]="habitacion.caracteristicas"
             placeholder="caracteristicas"
-          />
-          <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
-          <!-- <span class="text-danger ml-2" *ngIf="
+          />-->
+<!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
+<!-- <span class="text-danger ml-2" *ngIf="
 registroForm.get('nombres')?.hasError('required') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span>
@@ -58,7 +197,7 @@ registroForm.get('nombres')?.touched
 registroForm.get('nombres')?.hasError('minlength') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span> -->
-        </div>
+<!--</div>
         <div class="form-group col-md-6">
           <label for="numero_de_habitacion" class="col-form-label col-sm-12"
             >Numero de Habitacion</label
@@ -81,9 +220,9 @@ registroForm.get('nombres')?.touched
             name="precio"
             [(ngModel)]="habitacion.precio"
             placeholder="precio"
-          />
-          <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
-          <!-- <span class="text-danger ml-2" *ngIf="
+          />-->
+<!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
+<!-- <span class="text-danger ml-2" *ngIf="
 registroForm.get('nombres')?.hasError('required') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span>
@@ -91,7 +230,7 @@ registroForm.get('nombres')?.touched
 registroForm.get('nombres')?.hasError('minlength') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span> -->
-        </div>
+<!-- </div>
         <div class="form-group col-md-6">
           <label for="numero_de_piso" class="col-form-label col-sm-12"
             >Numero de Piso</label
@@ -109,7 +248,7 @@ registroForm.get('nombres')?.touched
         <div class="form-group col-md-6">
           <label for="estado_habitacion" class="col-form-label col-sm-12"
             >Estado de Habitacion</label
-          >
+          >-
           <input
             style="width: auto; height: auto"
             type="checkbox"
@@ -117,9 +256,9 @@ registroForm.get('nombres')?.touched
             name="estado_habitacion"
             [(ngModel)]="habitacion.estado_habitacion"
           />
-
-          <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
-          <!-- <span class="text-danger ml-2" *ngIf="
+        -->
+<!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
+<!-- <span class="text-danger ml-2" *ngIf="
 registroForm.get('nombres')?.hasError('required') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span>
@@ -127,18 +266,3 @@ registroForm.get('nombres')?.touched
 registroForm.get('nombres')?.hasError('minlength') &&
 registroForm.get('nombres')?.touched
 ">El nombre es requerido</span> -->
-        </div>
-      </div>
-      <button
-        class="btn btn-success"
-        (click)="create()"
-        *ngIf="!habitacion.id; else elseBlock"
-      >
-        Registrar
-      </button>
-      <ng-template #elseBlock>
-        <button class="btn btn-success" (click)="update()">Actualizar</button>
-      </ng-template>
-    </div>
-  </form>
-</div>

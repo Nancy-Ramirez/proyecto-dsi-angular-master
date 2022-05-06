@@ -8,7 +8,7 @@ sidenav-container {
 }
 
 .sidenav .mat-toolbar {
-  background: #2b94a7;
+  background: #5eb8bd;
   width: 189px;
   height: 54.1px;
 }
@@ -19,5 +19,5 @@ sidenav-container {
 }
 
 mat-nav-list {
-  background: #2b94a7;
+  background: #5eb8bd;
 }

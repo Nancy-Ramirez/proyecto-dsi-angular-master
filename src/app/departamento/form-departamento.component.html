@@ -1,0 +1,29 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{titulo}}
+            </h5>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombre_cargo" class="col-form-label col-sm-12">Nombre de Departamento</label>
+                    <input type="text" class="form-control" name="nombre_cargo" [(ngModel)]="departamento.nombre_departamento" placeholder="Nombre de Departamento">
+                    <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
+                    <!-- <span class="text-danger ml-2" *ngIf="
+registroForm.get('nombres')?.hasError('required') &&
+registroForm.get('nombres')?.touched
+">El nombre es requerido</span>
+        <span class="text-danger ml-2" *ngIf="
+registroForm.get('nombres')?.hasError('minlength') &&
+registroForm.get('nombres')?.touched
+">El nombre es requerido</span> -->
+                </div>
+
+            </div>
+            <button class=" btn btn-success " (click)="create()" *ngIf="!departamento.id else elseBlock ">Registrar</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-success " (click)="update() ">Actualizar</button>
+            </ng-template>
+        </div>
+    </form>
+</div>

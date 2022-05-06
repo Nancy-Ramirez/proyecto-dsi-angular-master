@@ -1,0 +1,58 @@
+<router-outlet>
+  <div class="container">
+    <h1>Departamentos del Hotel</h1>
+    <button class="btn btn-info" type="button" routerLink="/departamentos/form">
+      Nuevo
+    </button>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input
+            type="text"
+            name="filterCargo"
+            class="form-control"
+            placeholder="Buscar"
+            [(ngModel)]="filterDepartamento"
+          />
+        </div>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let departamento of departamentos
+              | busDepartamento: filterDepartamento
+          "
+        >
+          <th scope="row">{{ departamento.id }}</th>
+          <td>{{ departamento.nombre_departamento }}</td>
+
+          <td>
+            <button
+              style="margin-right: 10px"
+              class="btn btn-primary"
+              [routerLink]="['/departamentos/form', departamento.id]"
+              routerLinkActive="router-link-active"
+            >
+              Editar
+            </button>
+            <button class="btn btn-danger" (click)="delete(departamento)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</router-outlet>

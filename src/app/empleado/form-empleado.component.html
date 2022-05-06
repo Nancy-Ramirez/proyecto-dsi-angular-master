@@ -1,0 +1,144 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="registroForm">
+        <div class="card-body">
+            <h5 class="card-title">{{titulo}}</h5>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nombres" class="col-form-label col-sm-12">Nombres</label>
+                    <input type="text" class="form-control" name="nombres" [(ngModel)]="empleado.nombres" placeholder="Nombres" formControlName="nombres">
+                    <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
+                    <span class="text-danger ml-2" *ngIf="
+registroForm.get('nombres')?.hasError('required') &&
+registroForm.get('nombres')?.touched
+">El nombre es requerido</span>
+                    <span class="text-danger ml-2" *ngIf="
+registroForm.get('nombres')?.hasError('minlength') &&
+registroForm.get('nombres')?.touched
+">El nombre es requerido</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="apellidos" class="col-form-label col-sm-12">Apellidos</label>
+                    <input type="text" class="form-control" name="apellidos" [(ngModel)]="empleado.apellidos" placeholder="Apellidos" formControlName="apellidos">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fecha_nacimiento" class="col-form-label col-sm-12">Fecha de Nacimiento</label>
+
+                    <input type="date" class="form-control" name="fecha_nacimiento" [(ngModel)]="empleado.fecha_nacimiento" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento">
+
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="nacionalidad" class="col-form-label col-sm-12">Nacionalidad</label>
+                    <input type="text" class="form-control" name="nacionalidad" [(ngModel)]="empleado.nacionalidad" placeholder="Nacionalidad" formControlName="nacionalidad">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dui" class="col-form-label col-sm-12">N° DUI</label>
+
+                    <input type="text" class="form-control" name="dui" [(ngModel)]="empleado.dui" placeholder="N° DUI" formControlName="dui">
+                    <span class="text-danger ml-2" *ngIf="
+                    registroForm.get('dui')?.hasError('minlength') &&
+                    registroForm.get('dui')?.touched
+                    ">El dui debe tener 9 digitos</span>
+                    <span class="text-danger ml-2" *ngIf="
+                    registroForm.get('dui')?.hasError('maxlength') &&
+                    registroForm.get('dui')?.touched
+                    ">El dui no debe de tener mas de 9 digitos</span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="isss" class="col-form-label col-sm-12">N° ISSS</label>
+
+                    <input type="text" class="form-control" name="isss" [(ngModel)]="empleado.isss" placeholder="N° ISSS" formControlName="isss">
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nup" class="col-form-label col-sm-12">N° NUP</label>
+
+                    <input type="text" class="form-control" name="nup" [(ngModel)]="empleado.nup" placeholder="N° NUP" formControlName="nup">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="direccion" class="col-form-label col-sm-12">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" [(ngModel)]="empleado.direccion" placeholder="Direccion" formControlName="direccion">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="ciudad" class="col-form-label col-sm-12">Ciudad</label>
+
+                    <input type="text" class="form-control" name="ciudad" [(ngModel)]="empleado.ciudad" placeholder="Ciudad" formControlName="ciudad">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="telefono" class="col-form-label col-sm-12">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" [(ngModel)]="empleado.telefono" placeholder="Telefono" formControlName="telefono">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="sexo" class="col-form-label col-sm-12">Sexo</label>
+
+                    <!-- <input type="text" class="form-control" name="sexo" [(ngModel)]="empleado.sexo"> -->
+
+                    <select [(ngModel)]="empleado.sexo" name="sexo" (change)="changeCargo($event)" class="form-control" formControlName="sexo">
+            <option value="">Seleccionar</option>
+            <option value="m">Masculino</option>
+            <option value="f">Femenino</option>
+          </select>
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email" class="col-form-label col-sm-12">Email</label>
+
+                    <input type="text" class="form-control" name="email" [(ngModel)]="empleado.email" placeholder="Email" formControlName="email">
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="fecha_contratacion" class="col-form-label col-sm-12">Fecha de Contratacion</label>
+
+                    <input type="date" class="form-control" name="fecha_contratacion" [(ngModel)]="empleado.fecha_contratacion" placeholder="Fecha de Contratacion" formControlName="fecha_contratacion">
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="cargo" class="col-form-label col-sm-12">Cargo</label>
+
+                    <select [(ngModel)]="empleado.id_cargo" name="Cargo" (change)="changeCargo($event)" class="form-control" formControlName="id_cargo">
+            <option value="">Seleccionar</option>
+            <option [value]="c.id" *ngFor="let c of cargo">
+              {{c.nombre_cargo}}
+            </option>
+          </select>
+
+
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="id_departamento " class="col-form-label col-sm-12 ">Departamento</label>
+
+                    <select [(ngModel)]="empleado.id_departamento" name="Departamento" (change)="changeCargo($event)" class="form-control" formControlName="id_departamento">
+            <option value="">Seleccionar</option>
+            <option [value]="d.id" *ngFor="let d of departamento">
+              {{d.nombre_departamento}}
+            </option>
+          </select>
+                </div>
+            </div>
+
+            <button class=" btn btn-success " (click)="create()" *ngIf="!empleado.id else elseBlock ">Registrar</button>
+            <ng-template #elseBlock>
+                <button class="btn btn-success " (click)="update() ">Actualizar</button>
+            </ng-template>
+
+        </div>
+
+    </form>
+
+</div>

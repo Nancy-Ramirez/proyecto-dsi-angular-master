@@ -1,40 +1,11 @@
-div.noticia {
-  width: 50%;
-  margin: 20px auto;
-  background-color: #449;
-  color: #fff;
-  padding: 15px;
+.card {
+  background: #fbc248;
 }
-div.noticia img.izquierda {
-  float: left;
-  margin-right: 15px;
+.text-table {
+  color: black;
 }
 
-div.reset {
-  clear: both;
-}
-.text-align-center {
-  height: 100px;
-  width: 200px;
-
-  background: #000080;
-  color: #333;
-
-  line-height: 100px;
+.card-titles {
+  color: Black;
   text-align: center;
-  vertical-align: middle;
-}
-mat-grid-tile {
-  background: mistyrose;
-}
-.h2 {
-  line-height: 50x;
-  text-align: center;
-  vertical-align: middle;
-}
-.container {
-  display: grid;
-  grid-template: 300px 250px 200px 150px / 100% 100% 100%;
-  border: 100px black;
-  grid-gap: 100px 12px;
 }

@@ -1,12 +1,96 @@
 <html>
-  <h1>Bienvenido</h1>
-  <section class="container">
-    <mat-grid-list cols="3" rowHeight="2:1">
-      <mat-grid-tile> <h2>TOTAL HABITACIONES</h2></mat-grid-tile>
+  <h2>Inicio</h2>
+  <!-- Cards-->
 
-      <mat-grid-tile> <h2>HABITACIONES DISPONIBLES</h2></mat-grid-tile>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">
+            <span class="material-icons"> grade </span>
+          </div>
+          <h2 class="card-category">Total Habitaciones</h2>
+          <h1 class="card-title">18</h1>
+        </div>
+      </div>
+    </div>
 
-      <mat-grid-tile> <h2>HABITACIONES OCUPADAS</h2></mat-grid-tile>
-    </mat-grid-list>
-  </section>
+    <div class="col-md-3">
+      <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">
+            <span class="material-icons"> light_mode </span>
+          </div>
+          <h2 class="card-category">Hab. Disponibles</h2>
+          <h1 class="card-title">12</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card card-stats">
+        <div class="card-header card-header-success card-header-icon">
+          <div class="card-icon">
+            <span class="material-icons"> dark_mode </span>
+          </div>
+          <h2 class="card-category">Hab. Ocupadas</h2>
+          <h1 class="card-title">6</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <!--Tabla-->
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-9">
+      <div class="cards">
+        <div class="card-header card-header-warning">
+          <h2 class="card-titles">Información de habitaciones ocupadas</h2>
+        </div>
+        <div class="card-content table-responsive table-full-width">
+          <table class="table">
+            <thead class="thead-dark">
+              <th>N°</th>
+              <th>Cliente</th>
+              <th>Habitación</th>
+              <th>Tipo</th>
+              <th>Fecha Ingreso</th>
+              <th>Hora Ingreso</th>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Dakota Facturati</td>
+                <td>101</td>
+                <td>Doble</td>
+                <td>10-05-22</td>
+                <td>15:25</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Benito Flores</td>
+                <td>203</td>
+                <td>Individual</td>
+                <td>11-05-22</td>
+                <td>17:27</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Alma Rosa Paredes</td>
+                <td>103</td>
+                <td>Doble</td>
+                <td>09-05-22</td>
+                <td>22:36</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>

@@ -6,7 +6,7 @@ import swal from 'sweetalert2';
 @Component({
   selector: 'app-cargo',
   templateUrl: './cargo.component.html',
-  styles: [],
+  styleUrls: ['./cargo.component.css'],
 })
 export class CargoComponent implements OnInit {
   cargos?: Cargo[];

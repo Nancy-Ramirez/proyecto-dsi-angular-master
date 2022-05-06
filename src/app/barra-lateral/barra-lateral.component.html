@@ -7,17 +7,55 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar>MARBELLA VICE</mat-toolbar>
+    <mat-toolbar>
+      <span class="material-icons"> menu </span>
+    </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/inicio">Inicio</a>
-      <a mat-list-item routerLink="/habitaciones">Habitación</a>
-      <a mat-list-item routerLink="/empleados">Empleado</a>
-      <a mat-list-item routerLink="/cargos">Cargo</a>
-      <a mat-list-item routerLink="/departamentos">Departamento</a>
+      <a mat-list routerLink="#"> </a>
+
+      <a mat-list-item routerLink="/inicio"
+        ><i class="material-icons">&#xE88A;</i> Inicio</a
+      >
+
+      <a mat-list-item routerLink="#"
+        ><span class="material-icons"> location_city </span>Disponibilidad</a
+      >
+
+      <a mat-list-item routerLink="#"
+        ><span class="material-icons"> event_seat </span> Reservas</a
+      >
+
+      <a mat-list-item routerLink="#"
+        ><span class="material-icons"> room_service </span>Servicios</a
+      >
+
+      <a mat-list-item routerLink="#"
+        ><span class="material-icons"> attach_money </span> Facturación</a
+      >
+
+      <a mat-list-item routerLink="/habitaciones"
+        ><span class="material-icons"> bed </span>Habitación</a
+      >
+
+      <a mat-list-item routerLink="/empleados">
+        <span class="material-icons"> person </span>Empleado</a
+      >
+
+      <a mat-list-item routerLink="/cargos"
+        ><span class="material-icons"> work_outline </span>Cargo</a
+      >
+
+      <a mat-list-item routerLink="/departamentos"
+        ><span class="material-icons"> assignment </span>Departamento</a
+      >
     </mat-nav-list>
+    <mat-toolbar> </mat-toolbar>
+    <mat-toolbar> </mat-toolbar>
+    <mat-toolbar> </mat-toolbar>
   </mat-sidenav>
+
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="lime">
       <button
         type="button"
         aria-label="Toggle sidenav"

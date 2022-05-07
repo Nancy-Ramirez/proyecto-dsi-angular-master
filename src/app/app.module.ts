@@ -15,8 +15,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { FormEmpleadoComponent } from './empleado/form-empleado.component';
+import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormHabitacionComponent } from './habitacion/form-habitacion.component';
@@ -66,6 +68,7 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
     MatGridListModule,
     MatInputModule,
     MatCheckboxModule,
+    MatStepperModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

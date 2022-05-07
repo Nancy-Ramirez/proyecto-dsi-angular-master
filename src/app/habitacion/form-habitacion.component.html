@@ -4,27 +4,35 @@
       <h2 class="card-title">
         {{ titulo }}
       </h2>
+
       <div class="form-row">
-        <!--Tipo de habitación-->
-        <div class="form-group col-md-4">
-          <p>
-            <mat-form-field
-              appearance="standard"
-              size="75"
-              style="width: 300px; height: 98px"
-            >
-              <mat-label>Tipo de habitación</mat-label>
-              <input
-                matInput
-                placeholder=""
-                class="form-control"
-                name="tipo_habitacion"
-                [(ngModel)]="habitacion.tipo_habitacion"
-              />
-            </mat-form-field>
-          </p>
+        <!--Checkbox (ni se para que es)-->
+        <div class="form-group col-md-8">
+          <mat-checkbox
+            class="example-margin"
+            style="width: auto; height: auto"
+            type="text"
+            name="estado_habitacion"
+            [(ngModel)]="habitacion.estado_habitacion"
+          >
+            Habitación disponible</mat-checkbox
+          >
         </div>
-        <br />
+        <div class="form-group col-md-2">
+          <!--botons-->
+          <button
+            class="btn btn-primary"
+            (click)="create()"
+            *ngIf="!habitacion.id; else elseBlock"
+          >
+            Registrar
+          </button>
+          <ng-template #elseBlock>
+            <button class="btn-guardar" (click)="update()">Actualizar</button>
+          </ng-template>
+        </div>
+      </div>
+      <div class="form-row">
         <!--Número de habitación-->
         <div class="form-group col-md-4">
           <p>
@@ -37,6 +45,7 @@
               <input
                 matInput
                 placeholder=""
+                type="text"
                 class="form-control"
                 name="numero_de_habitacion"
                 [(ngModel)]="habitacion.numero_habitacion"
@@ -50,16 +59,61 @@
             <mat-form-field
               appearance="standard"
               size="75"
-              style="width: 300px; height: 98px"
+              style="width: 200px; height: 98px"
             >
               <mat-label>N° de piso</mat-label>
               <input
                 matInput
                 placeholder=""
+                type="text"
                 class="form-control"
                 name="numero_de_piso"
                 [(ngModel)]="habitacion.numero_piso"
               />
+            </mat-form-field>
+          </p>
+        </div>
+      </div>
+      <div class="form-row">
+        <!--Tipo de habitación-->
+        <div class="form-group col-md-4">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              size="75"
+              style="width: 300px; height: 98px"
+            >
+              <mat-label>Tipo de habitación</mat-label>
+              <input
+                matInput
+                placeholder=""
+                type="text"
+                class="form-control"
+                name="tipo_habitacion"
+                [(ngModel)]="habitacion.tipo_habitacion"
+              />
+            </mat-form-field>
+          </p>
+        </div>
+        <!--Precio de la habitación 24h-->
+        <div class="form-group col-md-3">
+          <p>
+            <mat-form-field
+              appearance="standard"
+              floatLabel="always"
+              size="75"
+              style="width: 300px; height: 98px"
+            >
+              <mat-label>Precio 24h</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                name="precio"
+                [(ngModel)]="habitacion.precio"
+              />
+              <span matPrefix>$&nbsp;</span>
+              <span matSuffix></span>
             </mat-form-field>
           </p>
         </div>
@@ -95,6 +149,7 @@ registroForm.get('nombres')?.touched
               <textarea
                 matInput
                 placeholder=""
+                type="text"
                 class="form-control"
                 name="descripcion_habitacion"
                 [(ngModel)]="habitacion.descripcion_habitacion"
@@ -115,6 +170,7 @@ registroForm.get('nombres')?.touched
               <textarea
                 matInput
                 placeholder=""
+                type="text"
                 class="form-control"
                 name="caracteristicas"
                 [(ngModel)]="habitacion.caracteristicas"
@@ -123,55 +179,6 @@ registroForm.get('nombres')?.touched
           </p>
         </div>
       </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <p>
-            <mat-form-field
-              appearance="standard"
-              floatLabel="always"
-              size="75"
-              style="width: 300px; height: 98px"
-            >
-              <mat-label>Precio 24h</mat-label>
-              <input
-                matInput
-                type="number"
-                class="example-right-align"
-                name="precio"
-                [(ngModel)]="habitacion.precio"
-              />
-              <span matPrefix>$&nbsp;</span>
-              <span matSuffix></span>
-            </mat-form-field>
-          </p>
-        </div>
-
-        <!--Checkbox (ni se para que es)-->
-        <div class="form-group col-md-6">
-          <input
-            style="width: auto; height: auto"
-            type="checkbox"
-            class="form-control"
-            name="estado_habitacion"
-            [(ngModel)]="habitacion.estado_habitacion"
-          />
-        </div>
-      </div>
-
-      <!--botons-->
-      <button
-        mat-raised-button
-        style="background-color: skyblue"
-        class="btn-guardar"
-        (click)="create()"
-        *ngIf="!habitacion.id; else elseBlock"
-      >
-        Registrar
-      </button>
-      <ng-template #elseBlock>
-        <button class="btn-guardar" (click)="update()">Actualizar</button>
-      </ng-template>
     </div>
   </form>
 </div>

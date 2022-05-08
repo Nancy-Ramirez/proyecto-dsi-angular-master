@@ -11,7 +11,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./empleado.component.css'],
 })
 export class EmpleadoComponent implements OnInit {
-  titulo: string = 'Lista de Empelados';
+  titulo: string = 'Lista de Empleados';
   empleados?: Empleado[];
   cargo?: Cargo[];
   filterEmpleado = '';

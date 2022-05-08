@@ -9,6 +9,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -69,6 +70,7 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
     MatInputModule,
     MatCheckboxModule,
     MatStepperModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

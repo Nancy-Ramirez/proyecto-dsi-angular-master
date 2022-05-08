@@ -9,6 +9,7 @@ import swal from 'sweetalert2';
   styleUrls: ['./habitacion.component.css'],
 })
 export class HabitacionComponent implements OnInit {
+  titulo: string = 'Lista de Habitaciones';
   habitaciones?: Habitacion[];
   filterHabitacion = '';
 
@@ -41,4 +42,5 @@ export class HabitacionComponent implements OnInit {
         }
       });
   }
+  
 }

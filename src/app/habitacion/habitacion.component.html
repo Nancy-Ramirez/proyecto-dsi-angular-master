@@ -1,7 +1,7 @@
 <div class="container">
   <h1>HABITACIONES</h1>
   <button class="btn btn-info" type="button" routerLink="/habitaciones/form">
-    Nuevo
+    Registrar Habitación
   </button>
   <br />
   <br />
@@ -10,7 +10,7 @@
       <div class="form-group">
         <input
           type="text"
-          name="filterEmpleado"
+          name="filterHabitacion"
           class="form-control"
           placeholder="Buscar"
           [(ngModel)]="filterHabitacion"
@@ -18,9 +18,11 @@
       </div>
     </div>
   </div>
+<div class="row">
+  <div class = "col">
 
-  <table class="table">
-    <thead class="thead-dark">
+ <table class="table table-striped" >
+    <thead class="thead-dark" >
       <tr>
         <th scope="col">N° de Habitacion</th>
         <th scope="col">Tipo de habitacion</th>
@@ -47,7 +49,7 @@
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">
-          <button mat-mini-fab color="warning" aria-label="Example icon button with a edit icon"[routerLink]="['/habitaciones/form', habitacion.id]"
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/habitaciones/form', habitacion.id]"
             routerLinkActive="router-link-active">
             <mat-icon>edit</mat-icon>
           </button>
@@ -63,4 +65,6 @@
       </tr>
     </tbody>
   </table>
+
+  </div>
 </div>

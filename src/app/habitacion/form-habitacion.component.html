@@ -1,10 +1,19 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()">
     <div class="card-body">
+    <mat-card-header>
+       <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        routerLink="/habitaciones"
+      >
+  <span><span class="material-icons">arrow_back </span></span>
+       </button>
       <h2 class="card-title">
-        {{ titulo }}
+       Datos de habitación 
       </h2>
-
+</mat-card-header>
       <mat-horizontal-stepper>
         <mat-step label="Información Habitación">
           <div>
@@ -439,7 +448,7 @@
           <div class="form-group col-md-2">
             <!--botons-->
             <button
-              class="btn btn-primary"
+              class="btn btn-info"
               (click)="create()"
               *ngIf="!habitacion.id; else elseBlock"
             >

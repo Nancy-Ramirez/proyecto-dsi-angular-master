@@ -2,17 +2,20 @@ h1 {
   text-align: center;
 }
 .example-button-container {
-  display: flex;
+  display: contents;
   justify-content: center;
-  width: 120px;
+  width: 300px;
 }
 .example-flex-container {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nonrap;
 }
+mat-card-content{
 
-.example-button-row {
-  display: table-cell;
-  width: 300px;
+width: 900px;
+align-content: center;
+
+}
+.btnEditar{
+  background-color:gold;
 }

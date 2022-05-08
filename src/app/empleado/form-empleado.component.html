@@ -1,7 +1,19 @@
 <div class="container">
     <form (ngSubmit)="onSubmit()" [formGroup]="registroForm">
         <div class="card-body">
-            <h5 class="card-title">{{titulo}}</h5>
+    <mat-card-header>
+       <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        routerLink="/empleados"
+      >
+  <span><span class="material-icons">arrow_back </span></span>
+       </button>
+      <h2 class="card-title">
+       Datos de Personal
+      </h2>
+</mat-card-header> 
 
             <div class="form-row">
                 <div class="form-group col-md-6">

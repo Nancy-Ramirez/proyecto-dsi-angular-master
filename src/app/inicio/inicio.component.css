@@ -1,5 +1,5 @@
 .card {
-  background: #db566f;
+  background: #FBC248 ;
 }
 .text-table {
   color: black;
@@ -8,4 +8,7 @@
 .card-titles {
   color: Black;
   text-align: center;
+}
+body{
+  background: whitesmoke;
 }

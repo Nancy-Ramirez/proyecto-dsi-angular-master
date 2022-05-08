@@ -1,3 +1,18 @@
 h1 {
   text-align: center;
 }
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+.example-flex-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 300px;
+}

@@ -1,23 +1,25 @@
 sidenav-container {
-  height: 90%;
+  height: 100%;
 }
 
 .sidenav {
-  width: 190px;
+  width: 210px;
   height: 100%;
 }
 
 .sidenav .mat-toolbar {
-  background: #5eb8bd;
-  width: 189px;
-  height: 54.1px;
+  width: 209px;
+  height: 64.1px;
 }
 
-.mat-toolbar {
-  background: #2f5b6e;
+mat-nav-list, .colorico {
+  background: white;
+}
+.example-spacer, .fill-remaining-space{
+  flex: 1 1 auto;
+}
+
+.colors, .active:focus {
+  background-color: #3f778f   ;
   text-align: center;
-}
-
-mat-nav-list {
-  background: #5eb8bd;
 }

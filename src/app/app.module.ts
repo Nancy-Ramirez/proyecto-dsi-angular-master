@@ -16,7 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatSelectModule} from '@angular/material/select';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { FormEmpleadoComponent } from './empleado/form-empleado.component';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -70,7 +70,8 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
     MatInputModule,
     MatCheckboxModule,
     MatStepperModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

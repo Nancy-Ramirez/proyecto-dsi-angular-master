@@ -4,7 +4,7 @@ import { Empleado } from './empleado';
 import { EmpleadoService } from './empleado.service';
 import { Cargo } from '../cargo/cargo';
 import { Departamento } from '../departamento/departamento';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CargoService } from '../cargo/cargo.service';
 
 @Component({
@@ -15,19 +15,21 @@ import { CargoService } from '../cargo/cargo.service';
 export class FormEmpleadoComponent implements OnInit {
   registroForm!: FormGroup;
   submitted = false;
-
+  resultado!: string;
   empleado: Empleado = new Empleado();
   cargo?: Cargo[];
   departamento?: Departamento[];
 
   titulo: string = 'Registro de Empleado';
+  
 
   constructor(
     private empleadoService: EmpleadoService,
     private cargoService: CargoService,
     private router: Router,
     private activateRoute: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    
   ) {}
 
   ngOnInit(): void {
@@ -36,13 +38,13 @@ export class FormEmpleadoComponent implements OnInit {
     this.departamentos();
 
     this.registroForm = this.formBuilder.group({
-      nombres: ['', [Validators.required, Validators.maxLength(200)]],
-      apellidos: ['', [Validators.required, Validators.maxLength(200)]],
+      nombres: ['', [Validators.required, Validators.maxLength(200), Validators.minLength(3)]],
+      apellidos: ['', [Validators.required, Validators.maxLength(200), Validators.minLength(3)]],
       fecha_nacimiento: ['', Validators.required],
       nacionalidad: ['', Validators.required],
       dui: [
         '',
-        [Validators.required, Validators.maxLength(9), Validators.minLength(9)],
+        [Validators.required, Validators.maxLength(9), Validators.minLength(9) ],
       ],
       isss: [
         '',
@@ -50,16 +52,16 @@ export class FormEmpleadoComponent implements OnInit {
       ],
       nup: [
         '',
-        [Validators.required, Validators.maxLength(9), Validators.minLength(9)],
+        [Validators.required, Validators.maxLength(12), Validators.minLength(12)],
       ],
-      direccion: ['', Validators.required],
-      ciudad: ['', Validators.required],
-      telefono: ['', Validators.required],
-      sexo: ['', Validators.required],
+      direccion: ['', [Validators.required]],
+      ciudad: ['', [Validators.required]],
+      telefono: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
+      sexo: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      fecha_contratacion: ['', Validators.required],
-      id_cargo: ['', Validators.required],
-      id_departamento: ['', Validators.required],
+      fecha_contratacion: ['', [Validators.required]],
+      id_cargo: ['', [Validators.required]],
+      id_departamento: ['', [Validators.required]],
     });
   }
   get form() {
@@ -109,4 +111,12 @@ export class FormEmpleadoComponent implements OnInit {
       .getDepartamentos()
       .subscribe((d) => (this.departamento = d));
   }
+
+submit() {
+    if (this.registroForm.valid)
+      this.resultado = "Todos los datos son válidos";
+    else
+      this.resultado = "Hay datos inválidos en el formulario";
+  }
+
 }

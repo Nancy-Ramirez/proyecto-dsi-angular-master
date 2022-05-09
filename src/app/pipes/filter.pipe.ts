@@ -16,7 +16,7 @@ export class FilterPipe implements PipeTransform {
         resultEmpleados.push(empleado);
       }
     }
-
+ 
     return resultEmpleados;
   }
 }

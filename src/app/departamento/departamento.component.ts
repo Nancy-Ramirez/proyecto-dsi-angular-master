@@ -3,12 +3,14 @@ import swal from 'sweetalert2';
 import { DepartamentoService } from '../departamento/departamento.service';
 import { Departamento } from './departamento';
 
+
 @Component({
   selector: 'app-departamento',
   templateUrl: './departamento.component.html',
   styleUrls: ['./departamento.component.css'],
 })
-export class DepartamentoComponent implements OnInit {
+export class DepartamentoComponent implements OnInit{
+  modalSwitch: boolean = false;
   departamentos?: Departamento[];
   filterDepartamento = '';
   constructor(private departamentoService: DepartamentoService) {}
@@ -42,4 +44,10 @@ export class DepartamentoComponent implements OnInit {
         }
       });
   }
+
+openModal(){
+
+this.modalSwitch=true;
+}
+
 }

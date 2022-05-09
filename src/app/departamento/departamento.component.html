@@ -2,7 +2,7 @@
   <div class="container">
     <h1>DEPARTAMENTOS</h1>
     <button class="btn btn-info" type="button" routerLink="/departamentos/form">
-      Nuevo
+      Registrar Departamento
     </button>
     <br />
     <br />
@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <table class="table">
+    <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
           <th scope="col">ID</th>
@@ -39,18 +39,22 @@
           <td>{{ departamento.nombre_departamento }}</td>
 
           <td>
-            <button
-              style="margin-right: 10px"
-              class="btn btn-primary"
-              [routerLink]="['/departamentos/form', departamento.id]"
-              routerLinkActive="router-link-active"
-            >
-              Editar
-            </button>
-            <button class="btn btn-danger" (click)="delete(departamento)">
-              Eliminar
-            </button>
-          </td>
+           <div class="example-button-row">
+           <div class="example-flex-container">
+          <div class="example-button-container">
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/departamentos/form', departamento.id]"
+            routerLinkActive="router-link-active" style="margin-right:10px">
+            <mat-icon>edit</mat-icon>
+          </button>
+          </div>
+          <div class="example-button-container">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(departamento)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+          </div>
+          </div>
+        </td>
         </tr>
       </tbody>
     </table>

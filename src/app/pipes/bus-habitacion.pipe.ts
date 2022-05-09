@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BusHabitacionPipe implements PipeTransform {
   transform(value: any, arg: any): any {
     if (arg === '' || arg.length < 1) return value;
-    const resultEmpleados = [];
+    const resulthabitacion = [];
     console.log(value, arg);
     for (const habitacion of value) {
       if (
@@ -16,10 +16,10 @@ export class BusHabitacionPipe implements PipeTransform {
           -1 ||
         habitacion.numero_piso.toLowerCase().indexOf(arg.toLowerCase()) > -1
       ) {
-        resultEmpleados.push(habitacion);
+        resulthabitacion.push(habitacion);
       }
     }
 
-    return resultEmpleados;
+    return resulthabitacion;
   }
 }

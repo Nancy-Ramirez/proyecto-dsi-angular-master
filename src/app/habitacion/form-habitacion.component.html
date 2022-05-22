@@ -15,14 +15,13 @@
       </h2>
 </mat-card-header>
       <mat-horizontal-stepper>
-        <mat-step label="Información Habitación">
+        <mat-step label = "Información Habitación">
           <div>
             <div class="form-row">
-              <!--Checkbox (ni se para que es)-->
-              <div class="form-group col-md-8">
+              <!--Checkbox habitación-->
+              <div class="form-group col-md-4">
                 <mat-checkbox
                   class="example-margin"
-                  style="width: auto; height: auto"
                   type="text"
                   name="estado_habitacion"
                   [(ngModel)]="habitacion.estado_habitacion"
@@ -48,7 +47,13 @@
                       class="form-control"
                       name="numero_de_habitacion"
                       [(ngModel)]="habitacion.numero_habitacion"
+                      required
                     />
+                      <mat-hint>
+                        <span *ngIf="this.registroForm.get('ciudad')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                        </span>
+                      </mat-hint>
                   </mat-form-field>
                 </p>
               </div>
@@ -68,6 +73,7 @@
                       class="form-control"
                       name="numero_de_piso"
                       [(ngModel)]="habitacion.numero_piso"
+                      required
                     />
                   </mat-form-field>
                 </p>
@@ -90,6 +96,7 @@
                       class="form-control"
                       name="tipo_habitacion"
                       [(ngModel)]="habitacion.tipo_habitacion"
+                      required
                     />
                   </mat-form-field>
                 </p>
@@ -110,6 +117,7 @@
                       class="form-control"
                       name="precio"
                       [(ngModel)]="habitacion.precio"
+                      required
                     />
                     <span matPrefix>$&nbsp;</span>
                     <span matSuffix></span>
@@ -119,12 +127,11 @@
             </div>
             <!--Descripción de la habitación-->
             <div class="form-row">
-              <div class="form-group col-md-9">
+              <div class="form-group col-md-4">
                 <p>
                   <mat-form-field
                     appearance="standard"
-                    size="75"
-                    style="width: 640px; height: 98px"
+                    style="width: 300px"
                   >
                     <mat-label>Descripción de la habitación</mat-label>
                     <textarea
@@ -134,13 +141,35 @@
                       class="form-control"
                       name="descripcion_habitacion"
                       [(ngModel)]="habitacion.descripcion_habitacion"
+                      required
                     >
                     </textarea>
                   </mat-form-field>
                 </p>
               </div>
+             <!--Max de personas en habitación-->
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    size="75"
+                    style="width: 300px; height: 98px"
+                  >
+                    <mat-label>Máx de personas</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      type="text"
+                      class="form-control"
+                      name="max_personas"
+                      [(ngModel)]="habitacion.max_personas"
+                      required
+                    />
+                  </mat-form-field>
+                </p>
+              </div>
             </div>
-            <button mat-button matStepperNext>Siguiente</button>
+            <button mat-button matStepperNext [disabled]="registroForm.invalid">Siguiente</button>
           </div>
         </mat-step>
         <!--Caracteristicas de la habitación-->

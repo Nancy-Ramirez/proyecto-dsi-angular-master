@@ -29,12 +29,12 @@ export class EmpleadoComponent implements OnInit {
   delete(empleado: Empleado): void {
     swal
       .fire({
-        title: 'Está seguro?',
+        title: '¿Desea eliminar este registro?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminarlo!',
+        confirmButtonText: 'Si',
       })
       .then((result) => {
         if (result.isConfirmed) {

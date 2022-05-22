@@ -430,10 +430,9 @@
                     placeholder=""
                     type="text"
                     required>     
-   
                      <mat-option [value]="c.id" *ngFor="let c of cargo">{{c.nombre_cargo}} </mat-option>
                      </mat-select>
-                        <mat-hint>
+                     <mat-hint>
                             <span *ngIf="this.registroForm.get('id.cargo')?.hasError?.('required')">
                                (El campo no puede quedar vacío)
                              </span>
@@ -465,9 +464,11 @@
                     required>          
                      <mat-option [value]="d.id" *ngFor="let d of departamento">{{d.nombre_departamento}} </mat-option>
                      </mat-select>
+                     <mat-hint>
                             <span *ngIf="this.registroForm.get('id.departamento')?.hasError?.('required')">
                                (El campo no puede quedar vacío)
                              </span>
+                      </mat-hint>
                      </mat-form-field>
                 </p>
               </div>

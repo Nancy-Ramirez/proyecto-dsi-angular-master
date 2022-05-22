@@ -6,6 +6,7 @@ import { Cargo } from '../cargo/cargo';
 import { Departamento } from '../departamento/departamento';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CargoService } from '../cargo/cargo.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-empleado',
@@ -61,7 +62,7 @@ export class FormEmpleadoComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       fecha_contratacion: ['', [Validators.required]],
       id_cargo: ['', [Validators.required]],
-      id_departamento: ['', [Validators.required]],
+      id_departamento: ['', [Validators.required]]
     });
   }
   get form() {
@@ -87,15 +88,42 @@ export class FormEmpleadoComponent implements OnInit {
   }
 
   create(): void {
+  swal
+  .fire({
+  position: 'center',
+  icon: 'success',
+  title: 'Registrado con éxito',
+  showConfirmButton: false,
+  timer: 1500
+  
+    })
     this.empleadoService
       .create(this.empleado)
-      .subscribe((res) => this.router.navigate(['/empleados']));
-  }
+      .subscribe((res) => this.router.navigate(['/empleados'])
+      );
+}
 
   update(): void {
-    this.empleadoService
+  swal.
+  fire({
+  title: '¿Desea guardar los cambios?',
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: 'Guardar',
+  denyButtonText: `No guardar`,
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+       this.empleadoService
       .update(this.empleado)
       .subscribe((res) => this.router.navigate(['/empleados']));
+    swal.fire('Cambios guardados', '', 'success')
+  } else if (result.isDenied) {
+    swal.fire('Los cambios no han sido guardados', '', 'info')
+    this.router.navigate(['/empleados'])
+  }
+})
+
   }
 
   cargos(): void {

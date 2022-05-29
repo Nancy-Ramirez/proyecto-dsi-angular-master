@@ -152,6 +152,7 @@
                       class="form-control"
                       formControlName="dui"
                       [(ngModel)]="empleado.dui"
+                      mask="00000000-0" 
                     required/>
                         <mat-hint>
                             <span *ngIf="this.registroForm.get('dui')?.hasError?.('required')">

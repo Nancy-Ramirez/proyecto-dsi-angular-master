@@ -32,6 +32,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { BusCargoPipe } from './pipes/bus-cargo.pipe';
 import { BusHabitacionPipe } from './pipes/bus-habitacion.pipe';
 import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
+import { ServicioComponent } from './servicio/servicio.component';
+import { BusServicioPipe} from './pipes/bus-servicio.pipe';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
     BusHabitacionPipe,
     BusDepartamentoPipe,
     BarraLateralComponent,
+    ServicioComponent,
+    BusServicioPipe,
   ],
   imports: [
     BrowserModule,

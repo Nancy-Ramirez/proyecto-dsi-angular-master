@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>SERVICIOS</h1>
+  <button class="btn btn-info" type="button" routerLink="/servicio/form">
+    Registrar Servicio
+  </button>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input
+          type="text"
+          name="filterServicio"
+          class="form-control"
+          placeholder="Buscar"
+        />
+      </div>
+    </div>
+  </div>
+<div class="row">
+  <div class = "col">
+
+ <table class="table table-striped" >
+    <thead class="thead-dark" >
+      <tr>
+        <th scope="col">Nombre de servicio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Capacidad</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+         *ngFor="
+          let servicio of servicio | busServicio: filterServicio
+        "
+      >       
+        <th scope="row">{{ servicio.nombre_servicio }}</th>
+        <td>{{ servicio.descripcion }}</td>
+        <td>{{ servicio.precio }}</td>
+        <td>{{ servicio.capacidad }}</td>
+
+           <div class="example-button-row">
+           <div class="example-flex-container">
+          <div class="example-button-container">
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/servicio/form', servicio.id]"
+            routerLinkActive="router-link-active" style="margin-right:10px">
+            <mat-icon>edit</mat-icon>
+          </button>
+          </div>
+          <div class="example-button-container">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(servicio)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+          </div>
+          </div>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="container">
   <h1>SERVICIOS</h1>
-  <button class="btn btn-info" type="button" routerLink="/servicio/form">
+  <button class="btn btn-info" type="button" routerLink="/servicios/form">
     Registrar Servicio
   </button>
   <br />
@@ -13,6 +13,7 @@
           name="filterServicio"
           class="form-control"
           placeholder="Buscar"
+          [(ngModel)]="filterServicio"
         />
       </div>
     </div>
@@ -33,24 +34,24 @@
     <tbody>
       <tr
          *ngFor="
-          let servicio of servicio | busServicio: filterServicio
+          let Servicio of servicio | busServicio: filterServicio
         "
       >       
-        <th scope="row">{{ servicio.nombre_servicio }}</th>
-        <td>{{ servicio.descripcion }}</td>
-        <td>{{ servicio.precio }}</td>
-        <td>{{ servicio.capacidad }}</td>
+        <th scope="row">{{ Servicio.nombre_servicio }}</th>
+        <td>{{ Servicio.descripcion }}</td>
+        <td>{{ Servicio.precio }}</td>
+        <td>{{ Servicio.capacidad }}</td>
 
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">
-          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/servicio/form', servicio.id]"
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/servicios/form', Servicio.id]"
             routerLinkActive="router-link-active" style="margin-right:10px">
             <mat-icon>edit</mat-icon>
           </button>
           </div>
           <div class="example-button-container">
-          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(servicio)">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(Servicio)">
             <mat-icon>delete</mat-icon>
           </button>
           </div>

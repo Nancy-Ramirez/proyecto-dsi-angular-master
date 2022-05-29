@@ -28,7 +28,7 @@ export class ServicioService {
   // metodo para actualizar Servicio
   update(Servicio: Servicio): Observable<Servicio> {
     return this.http.put<Servicio>(
-      this.url + '/Servicio/' + Servicio.id + '/',
+      this.url + '/servicio/' + Servicio.id + '/',
      Servicio
     );
   }

@@ -9,6 +9,7 @@ import { FormDepartamentoComponent } from './departamento/form-departamento.comp
 import { CargoComponent } from './cargo/cargo.component';
 import { FormCargoComponent } from './cargo/form-cargo.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ServicioComponent } from './servicio/servicio.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'cargos', component: CargoComponent },
   { path: 'cargos/form', component: FormCargoComponent },
   { path: 'cargos/form/:id', component: FormCargoComponent },
+  { path: 'servicios', component: ServicioComponent},
 ];
 
 @NgModule({

@@ -35,7 +35,10 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
 import { ServicioComponent } from './servicio/servicio.component';
 import { BusServicioPipe} from './pipes/bus-servicio.pipe';
 import { FormServicioComponent } from './servicio/form-servicio.component';
-import { UsuarioComponent } from './usuario/usuario.component';
+import { UsersComponent } from './users/users.component';
+import { FormUsersComponent } from './users/form-users.component';
+import { BusUsersPipe } from './pipes/bus-users.pipe';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +60,9 @@ import { UsuarioComponent } from './usuario/usuario.component';
     ServicioComponent,
     BusServicioPipe,
     FormServicioComponent,
-    UsuarioComponent,
+    UsersComponent,
+    FormUsersComponent,
+    BusUsersPipe,
   ],
   imports: [
     BrowserModule,

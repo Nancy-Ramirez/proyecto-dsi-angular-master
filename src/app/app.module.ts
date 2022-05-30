@@ -35,6 +35,7 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
 import { ServicioComponent } from './servicio/servicio.component';
 import { BusServicioPipe} from './pipes/bus-servicio.pipe';
 import { FormServicioComponent } from './servicio/form-servicio.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { FormServicioComponent } from './servicio/form-servicio.component';
     ServicioComponent,
     BusServicioPipe,
     FormServicioComponent,
+    UsuarioComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,4 +7,6 @@ export class Habitacion {
   precio?: number;
   numero_piso?: number;
   estado_habitacion?: boolean;
+  imagen_habitacion?: string|null|undefined;
+  caracteristica?: number[];
 }

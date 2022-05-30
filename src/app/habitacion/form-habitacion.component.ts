@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Habitacion } from './habitacion';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HabitacionService } from './habitacion.service';
 import {FormBuilder,Validators} from '@angular/forms';
 import swal from 'sweetalert2';
+import { Caracteristicas } from './caracteristicas';
 
 @Component({
   selector: 'app-form-habitacion',
@@ -16,8 +17,10 @@ export class FormHabitacionComponent implements OnInit {
   habitacion: Habitacion = new Habitacion();
   titulo: string = 'Registro de Habitacion';
   submitted = false;
-  firstFormGroup!: FormGroup;
-  secondFormGroup!: FormGroup;
+  caract?: Caracteristicas[];
+  list: any[] = [];
+  toppings = new FormControl();
+
   
   
   constructor(
@@ -30,12 +33,7 @@ export class FormHabitacionComponent implements OnInit {
   
   ngOnInit(): void {
     this.cargar();
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required],
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: '',
-    });
+    this.obtenerCarac();
 
     this.registroForm = this._formBuilder.group({
       numero_de_habitacion: ['', [Validators.required, Validators.maxLength(3), Validators.minLength(3)]],
@@ -47,7 +45,25 @@ export class FormHabitacionComponent implements OnInit {
     });
   }
 
-  
+     //caracteristica de habitacion
+     obtenerCarac(): void {
+        this.habitacionService
+      .getCaracteristicas()
+      .subscribe((c) => ((this.caract = c), console.log(c)));
+  }
+
+   //Caracteristicas():void{
+    //this.habitacionService.getCaracteristicas().subscribe(c =>( (this.caract = c), console.log(c)))
+  //}
+
+  changeCaracteristica(value: string){
+  this.list?.push({id: this.list.length, name:value})
+  console.log(this.list);
+  }
+
+  onOptionsSelected(value: string) {
+    console.log('the selected value is ' + value);
+  }
 
   onSubmit(): void {
     this.submitted = true;

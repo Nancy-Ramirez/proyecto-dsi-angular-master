@@ -1,6 +1,6 @@
 <div class="container">
   <form (ngSubmit)="onSubmit()">
-    <div class="card-body">
+        <div class="card-body">
     <mat-card-header>
        <button
         type="button"
@@ -19,17 +19,11 @@
           <div>
             <div class="form-row">
               <!--Checkbox habitación-->
-              <div class="form-group col-md-4">
-                <mat-checkbox
-                  class="example-margin"
-                  type="text"
-                  name="estado_habitacion"
-                  [(ngModel)]="habitacion.estado_habitacion"
-                >
-                  Habitación disponible</mat-checkbox
-                >
-              </div>
-            </div>
+                            <div class="form-group col-md-4">
+                                <mat-checkbox class="example-margin" type="text" name="estado_habitacion" [(ngModel)]="habitacion.estado_habitacion">
+                                    Habitación disponible</mat-checkbox>
+                            </div>
+                        </div>
             <div class="form-row">
               <!--Número de habitación-->
               <div class="form-group col-md-4">
@@ -52,7 +46,7 @@
                       <mat-hint>
                         <span *ngIf="this.registroForm.get('ciudad')?.hasError?.('required')">
                                (El campo no puede quedar vacío)
-                        </span>
+                    </span>
                       </mat-hint>
                   </mat-form-field>
                 </p>
@@ -176,293 +170,44 @@
         <mat-step label="Caracteristicas de la habitación">
           <p>Ponga un cheque en las caracteristicas que posee la habitación</p>
           <div>
-            <h2>En baño privado:</h2>
-            <!--Primera linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="articulos-aseo"
-                >
-                  Articulos de aseo gratis</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="wc"
-                >
-                  WC</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="Bañera-o-ducha"
-                >
-                  Bañera o ducha</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="Toallas"
-                >
-                  Toallas</mat-checkbox
-                >
-              </div>
-            </div>
-            <!--Segunda linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="secador-de-cabello"
-                >
-                  Secador de cabello</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="papel-higuienico"
-                >
-                  Papel higuienico</mat-checkbox
-                >
-              </div>
-            </div>
-            <h2>Equipamiento de la habitación:</h2>
-            <!--Tercera linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="ropa-de-cama"
-                >
-                  Ropa de cama</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="armario"
-                >
-                  Armario</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="minibar"
-                >
-                  Minibar</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="aire-acondicionado"
-                >
-                  Aire acondicionado</mat-checkbox
-                >
-              </div>
-            </div>
-            <!--Cuarta linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="caja-fuerte"
-                >
-                  Caja fuerte</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="insonorizacion"
-                >
-                  Insonorización</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="productos-de-limpieza"
-                >
-                  Productos de limpieza</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="escritorio"
-                >
-                  Escritorio</mat-checkbox
-                >
-              </div>
-            </div>
-            <!--Quinta linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="tv"
-                >
-                  TV</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="telefono"
-                >
-                  Teléfono</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="canales-por-cable"
-                >
-                  Canales por cable</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="ventilador"
-                >
-                  Ventilador</mat-checkbox
-                >
-              </div>
-            </div>
-            <!--Sexta linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="enchufe"
-                >
-                  Enchufe cerca de cama</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="servicio-despertador"
-                >
-                  Servicio de despertador</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="microondas"
-                >
-                  Microondas</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="cafetera"
-                >
-                  Cafetera</mat-checkbox
-                >
-              </div>
-            </div>
-            <h2>Vistas a:</h2>
-            <!--Septima linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="vistas-a-jardin"
-                >
-                  Vistas a jardín</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="vistas-a-piscina"
-                >
-                  Vistas a piscina</mat-checkbox
-                >
-              </div>
-            </div>
-            <h2>Politica de humo:</h2>
-            <!--octava linea de caracteristicas-->
-            <div class="form-row">
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="fumar"
-                >
-                  Se puede fumar</mat-checkbox
-                >
-              </div>
-              <div class="form-group col-md-3">
-                <mat-checkbox
-                  class="example-margin"
-                  style="width: auto; height: auto"
-                  type="text"
-                  name="no-fumar"
-                >
-                  No se puede fumar</mat-checkbox
-                >
-              </div>
+                          <!--CARACTERISTICA TODOLIST-->
+              <div class="form-group col-md-5">
+
+              
+              <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Servicios</mat-label>
+                                    <mat-select multiple [formControl]="toppings" [(ngModel)]="habitacion.caracteristica">
+                                        <mat-select-trigger>
+                                            {{toppings.value ? toppings.value[0] : ''}}
+                                            <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                      </span>
+                                        </mat-select-trigger>
+
+                                        <mat-option *ngFor="let d of caract" [value]="d.id">{{d.nombre_caracteristica}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                              <table class="table table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Caracteristicas</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let car of habitacion.caracteristica;let indice=index">
+                                    <td>{{car}}</td>
+                                    <td>{{caract?.[car-1]?.nombre_caracteristica}}</td>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
             </div>
             <button mat-button matStepperPrevious>Atrás</button>
             <button mat-button matStepperNext>Siguiente</button>

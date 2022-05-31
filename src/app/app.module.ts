@@ -38,6 +38,8 @@ import { FormServicioComponent } from './servicio/form-servicio.component';
 import { UsersComponent } from './users/users.component';
 import { FormUsersComponent } from './users/form-users.component';
 import { BusUsersPipe } from './pipes/bus-users.pipe';
+import { LoginComponent } from './login/login.component';
+import { NgxMaskModule} from 'ngx-mask'
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import { BusUsersPipe } from './pipes/bus-users.pipe';
     UsersComponent,
     FormUsersComponent,
     BusUsersPipe,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -84,7 +88,10 @@ import { BusUsersPipe } from './pipes/bus-users.pipe';
     MatCheckboxModule,
     MatStepperModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: true
+}),
   ],
   providers: [],
   bootstrap: [AppComponent],

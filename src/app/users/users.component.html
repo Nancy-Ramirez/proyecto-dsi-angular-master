@@ -1,10 +1,11 @@
 <div class="container">
   <h1>USUARIOS</h1>
+    <h5>Los datos utilizados en este módulo son confidenciales y delicados, por favor ser cuidadoso al momento de manipularlos</h5>
   <button class="btn btn-info" type="button" routerLink="/users/form">
     Registrar Usuario
   </button>
-  <br />
-  <br />
+<br>
+<br>
   <div class="row">
     <div class="col">
       <div class="form-group">
@@ -24,8 +25,7 @@
  <table class="table table-striped" >
     <thead class="thead-dark" >
       <tr>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
+        <th scope="col">Usuario</th> 
         <th scope="col">Opciones</th>
       </tr>
     </thead>
@@ -35,9 +35,7 @@
           let usu of users | busUsers: filterUsers
         "
       >       
-        <th scope="row">{{ usu.name }}</th>
-        <td>{{ usu.last_name }}</td>
-
+        <th scope="row">{{ usu.username }}</th>
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">

@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" >
         <div class="card-body">
     <mat-card-header>
        <button
@@ -163,20 +163,20 @@
                 </p>
               </div>
             </div>
-            <button mat-button matStepperNext [disabled]="registroForm.invalid">Siguiente</button>
+            <button mat-button matStepperNext>Siguiente</button>
           </div>
         </mat-step>
         <!--Caracteristicas de la habitación-->
         <mat-step label="Caracteristicas de la habitación">
           <p>Ponga un cheque en las caracteristicas que posee la habitación</p>
           <div>
-                          <!--CARACTERISTICA TODOLIST-->
-              <div class="form-group col-md-5">
-
-              
+                          <!--CARACTERISTICA TODOLIST-->              
               <div class="form-row">
-                            <div class="form-group col-md-3">
-                                <mat-form-field appearance="fill">
+                            <div class="form-group col-md-5">
+                                <mat-form-field 
+                                appearance="fill"
+                                size="50"
+                                style="width: 400px; height: 50px">
                                     <mat-label>Servicios</mat-label>
                                     <mat-select multiple [formControl]="toppings" [(ngModel)]="habitacion.caracteristica">
                                         <mat-select-trigger>
@@ -191,7 +191,7 @@
                                     </mat-select>
                                 </mat-form-field>
                             </div>
-
+                    <div class="form-group col-md-5">
                               <table class="table table-striped">
                                 <thead class="thead-dark">
                                     <tr>
@@ -205,13 +205,12 @@
                                 </tbody>
                             </table>
 
-
+</div>
                         </div>
 
             </div>
             <button mat-button matStepperPrevious>Atrás</button>
             <button mat-button matStepperNext>Siguiente</button>
-          </div>
         </mat-step>
 
         <mat-step label="Guardar Información"
@@ -225,6 +224,7 @@
               class="btn btn-info"
               (click)="create()"
               *ngIf="!habitacion.id; else elseBlock"
+             
             >
               Registrar
             </button>

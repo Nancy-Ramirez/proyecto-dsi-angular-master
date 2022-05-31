@@ -7,12 +7,14 @@ import { Departamento } from '../departamento/departamento';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CargoService } from '../cargo/cargo.service';
 import swal from 'sweetalert2';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 @Component({
   selector: 'app-form-empleado',
   templateUrl: './form-empleado.component.html',
   styleUrls: ['./form-empleado.component.css'],
 })
+
 export class FormEmpleadoComponent implements OnInit {
   registroForm!: FormGroup;
   submitted = false;
@@ -20,6 +22,7 @@ export class FormEmpleadoComponent implements OnInit {
   empleado: Empleado = new Empleado();
   cargo?: Cargo[];
   departamento?: Departamento[];
+  
 
   titulo: string = 'Registro de Empleado';
   
@@ -103,6 +106,7 @@ export class FormEmpleadoComponent implements OnInit {
       );
 }
 
+
   update(): void {
   swal.
   fire({
@@ -125,7 +129,6 @@ export class FormEmpleadoComponent implements OnInit {
 })
 
   }
-
   cargos(): void {
     this.cargoService.getCargos().subscribe((c) => (this.cargo = c));
   }
@@ -148,3 +151,6 @@ submit() {
   }
 
 }
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};

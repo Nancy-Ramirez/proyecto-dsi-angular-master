@@ -42,7 +42,7 @@ export class ServicioComponent implements OnInit {
                 .getAll()
                 .subscribe((response) => (this.servicio = response))
             );
-          swal.fire('Eliminado!', 'Habitación Eliminada', 'success');
+          swal.fire('Eliminado!', 'Servicio Eliminado', 'success');
         }
       });
   }

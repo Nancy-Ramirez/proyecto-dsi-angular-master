@@ -27,7 +27,7 @@ export class UsersComponent implements OnInit {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminarlo!',
+        confirmButtonText: 'Si, desactivarlo!',
       })
       .then((result) => {
         if (result.isConfirmed) {
@@ -38,7 +38,7 @@ export class UsersComponent implements OnInit {
                 .getAll()
                 .subscribe((response) => (this.users = response))
             );
-          swal.fire('Eliminado!', 'Usuario Eliminado', 'success');
+          swal.fire('Desactivado!', 'Usuario desactivado', 'success');
         }
       });
   }

@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>USUARIOS</h1>
+    <h5>Los datos utilizados en este módulo son confidenciales y delicados, por favor ser cuidadoso al momento de manipularlos</h5>
+  <button class="btn btn-info" type="button" routerLink="/users/form">
+    Registrar Usuario
+  </button>
+<br>
+<br>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input
+          type="text"
+          name="filterUsers"
+          class="form-control"
+          placeholder="Buscar"
+          [(ngModel)]="filterUsers"
+        />
+      </div>
+    </div>
+  </div>
+<div class="row">
+  <div class = "col">
+
+ <table class="table table-striped" >
+    <thead class="thead-dark" >
+      <tr>
+        <th scope="col">Usuario</th> 
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+         *ngFor="
+          let usu of users | busUsers: filterUsers
+        "
+      >       
+        <th scope="row">{{ usu.username }}</th>
+           <div class="example-button-row">
+           <div class="example-flex-container">
+          <div class="example-button-container">
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/users/form', usu.id]"
+            routerLinkActive="router-link-active" style="margin-right:10px">
+            <mat-icon>edit</mat-icon>
+          </button>
+          </div>
+          <div class="example-button-container">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(usu)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+          </div>
+          </div>
+      </tr>
+    </tbody>
+  </table>
+
+  </div>
+</div>
+

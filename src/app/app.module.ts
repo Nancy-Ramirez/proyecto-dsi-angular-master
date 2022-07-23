@@ -35,6 +35,12 @@ import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
 import { ServicioComponent } from './servicio/servicio.component';
 import { BusServicioPipe} from './pipes/bus-servicio.pipe';
 import { FormServicioComponent } from './servicio/form-servicio.component';
+import { UsersComponent } from './users/users.component';
+import { FormUsersComponent } from './users/form-users.component';
+import { BusUsersPipe } from './pipes/bus-users.pipe';
+import { LoginComponent } from './login/login.component';
+import { NgxMaskModule} from 'ngx-mask'
+
 
 @NgModule({
   declarations: [
@@ -56,6 +62,11 @@ import { FormServicioComponent } from './servicio/form-servicio.component';
     ServicioComponent,
     BusServicioPipe,
     FormServicioComponent,
+    UsersComponent,
+    FormUsersComponent,
+    BusUsersPipe,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -77,7 +88,10 @@ import { FormServicioComponent } from './servicio/form-servicio.component';
     MatCheckboxModule,
     MatStepperModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: true
+}),
   ],
   providers: [],
   bootstrap: [AppComponent],

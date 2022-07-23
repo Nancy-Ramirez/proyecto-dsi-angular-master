@@ -152,7 +152,7 @@
                       class="form-control"
                       formControlName="dui"
                       [(ngModel)]="empleado.dui"
-                      mask="00000000-0" 
+                      mask= "00000000-0"
                     required/>
                         <mat-hint>
                             <span *ngIf="this.registroForm.get('dui')?.hasError?.('required')">
@@ -185,6 +185,7 @@
                       class="form-control"
                       formControlName="isss"
                       [(ngModel)]="empleado.isss"
+                      mask= "000000000"
                     required/>
                         <mat-hint>
                             <span *ngIf="this.registroForm.get('isss')?.hasError?.('required')">
@@ -220,6 +221,7 @@
                       class="form-control"
                       formControlName="nup"
                       [(ngModel)]="empleado.nup"
+                      mask= "000000000000"
                     required/>
                         <mat-hint>
                             <span *ngIf="this.registroForm.get('nup')?.hasError?.('required')">
@@ -252,6 +254,7 @@
                       class="form-control"
                       formControlName="telefono"
                       [(ngModel)]="empleado.telefono"
+                      mask= "0000-0000"
                     required/>
                         <mat-hint>
                             <span *ngIf="this.registroForm.get('telefono')?.hasError?.('required')">
@@ -480,6 +483,7 @@
               class="btn btn-info"
               (click)="create()"
               *ngIf="!empleado.id; else elseBlock"
+              [disabled]="!registroForm.valid"
             >
               Registrar
             </button>

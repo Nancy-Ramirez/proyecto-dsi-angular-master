@@ -11,7 +11,7 @@
         ><i class="material-icons">&#xE88A;</i> Inicio</a
       >
 
-     <a mat-list-item routerLink="/reserva" 
+      <a mat-list-item routerLink="#"
         ><span class="material-icons"> event_seat </span> Reservas</a
       >
 
@@ -71,48 +71,55 @@ logout
 
     </mat-toolbar>
     <mat-card-content>
-<div class="largo">
-    <form (ngSubmit)="onSubmit()">
-        <div class="card-body">
-           <!--Espacio del botón de atrás-->
-            <mat-card-header>
-                <button
-                  type="button"
-                  aria-label="Toggle sidenav"
-                  mat-icon-button
-                  routerLink="/departamentos"
-                >
-                 <span><span class="material-icons">arrow_back </span></span>
-                </button>
-                <h2 class="card-title">
-                    Datos de departamento
-                </h2>
-            </mat-card-header> 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="nombre_cargo" class="col-form-label col-sm-12">Nombre de Departamento</label>
-                    <input type="text" class="form-control" name="nombre_cargo" [(ngModel)]="departamento.nombre_departamento" placeholder="Nombre de Departamento">
-                    <!-- <div *ngIf="registroForm.get('nombres')?.hasError('required') && registroForm.get('nombres')?.touched">Los nombres son obligatorios</div> -->
-                    <!-- <span class="text-danger ml-2" *ngIf="
-registroForm.get('nombres')?.hasError('required') &&
-registroForm.get('nombres')?.touched
-">El nombre es requerido</span>
-        <span class="text-danger ml-2" *ngIf="
-registroForm.get('nombres')?.hasError('minlength') &&
-registroForm.get('nombres')?.touched
-">El nombre es requerido</span> -->
-                </div>
+      <div class="largo">
+  <h1>RESERVAS</h1>
+  <button class="btn btn-info" type="button" routerLink="/inicio">
+    Nueva Reserva
+  </button>
+  <br />
+  <br />
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input
 
-            </div>
-            <button class=" btn btn-success " (click)="create()" *ngIf="!departamento.id else elseBlock ">Registrar</button>
-            <ng-template #elseBlock>
-                <button class="btn btn-success " (click)="update() ">Actualizar</button>
-            </ng-template>
-        </div>
-    </form>
+        />
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+         <td>
+           <div class="example-button-row">
+           <div class="example-flex-container">
+          <div class="example-button-container">
+          <button mat-mini-fab class="btnEditar" aria-label="edit icon"
+            routerLinkActive="router-link-active" style="margin-right:10px">
+            <mat-icon>edit</mat-icon>
+          </button>
+          </div>
+          <div class="example-button-container">
+          <button mat-mini-fab color="warn" aria-label="delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+          </div>
+          </div>
+        </td>
+     </tbody>
+  </table>
 </div>
     </mat-card-content>
   </mat-sidenav-content>
   
 </mat-sidenav-container>
-

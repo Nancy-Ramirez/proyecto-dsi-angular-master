@@ -14,10 +14,11 @@ import { FormServicioComponent } from './servicio/form-servicio.component';
 import { UsersComponent } from './users/users.component';
 import { FormUsersComponent } from './users/form-users.component';
 import { LoginComponent } from './login/login.component';
+import { ReservaComponent } from './reserva/reserva.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: 'inicio', component: InicioComponent },
   { path: 'empleados', component: EmpleadoComponent },
   { path: 'empleados/form', component: FormEmpleadoComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'users/form', component: FormUsersComponent},
   { path: 'users/form/:id', component: FormUsersComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'reserva', component: ReservaComponent}
 ];
 
 @NgModule({

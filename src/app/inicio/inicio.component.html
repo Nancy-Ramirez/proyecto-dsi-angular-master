@@ -1,122 +1,249 @@
-<html>
-  <body>
-  <h2>Inicio</h2>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar class="colors">
+      <span class="fill-remaining-space"> </span>
+      <span >   
+  <a mat-button href="/login" 
+  target="_blank"><span class="material-icons">
+logout
+</span>Salir</a>
+</span>
+
+    </mat-toolbar>
+    <mat-card-content>
+<div class="largo">
   <!-- Cards-->
+  
+  <mat-card-content>
+    <img src="/assets/img/image2.jpg"
+    width="1310">
+  </mat-card-content>
+<mat-card>
+  <mat-card class="card">
+    <div class="sobrenosotros">
+    <mat-card-header sobrenosotros>
+      <h1> <br>SOBRE NOSOTROS</h1>
+      <h3>Este hotel de diseño está situado en el barrio marítimo.
+      Ofrece terraza elegante con vistas al puerto, recepción 24 horas, conexión Wi-Fi gratuita y habitaciones con aire acondicionado y TV smart. 
+      <br>Las habitaciones del Hotel presentan una decoración moderna y una iluminación innovadora e incluyen baño privado con secador de pelo. 
+      A 5 minutos a pie del Hotel encontrará buenos restaurantes especializados en marisco.
+      <br>El Marbella se encuentra a 3 minutos a pie de la barra de Santiago, a 10 minutos a pie del precioso barrio del Born y a 7 minutos a pie del mirador.</h3>
+    </mat-card-header>
+    </div>
+<br>
+    <mat-card-title>
+      <h2>Servicios más populares </h2>
+    </mat-card-title>    
+    <section class="container-services">
+      <article class="service1">
+        <p class="container-blog-parrafo">
+          <mat-icon class="icon">smoke_free</mat-icon>
+          Habitaciones sin humo </p>
+      </article>
 
+      <article class="service2">
+        <p class="container-blog-parrafo">
+       <mat-icon class="icon">wifi</mat-icon> Wifi en todo el alojamiento </p>
+      </article>
+
+      <article class="service3">
+        <p class="container-blog-parrafo">
+        <mat-icon class="icon">av_timer</mat-icon> Recepción 24 horas </p>
+      </article>
+
+      <article class="service4">
+        <p class="container-blog-parrafo">
+        <mat-icon class="icon">local_bar</mat-icon> Bar </p>
+      </article>
+
+      <article class="service5">
+        <p class="container-blog-parrafo">
+        <mat-icon class="icon">beach_access</mat-icon> Situado frente a playa </p>
+      </article>
+    </section>
+<br>
+  <mat-card-title>
+    <h2>Disponibilidad</h2>
+  </mat-card-title>
+  <section class="container-disponibilidad">
+    <article class="datap">
+    <mat-form-field appearance="fill">
+  <mat-label>Enter a date range</mat-label>
+  <mat-date-range-input [rangePicker]="picker">
+    <input matStartDate placeholder="Start date">
+    <input matEndDate placeholder="End date">
+  </mat-date-range-input>
+  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  </article>
+
+   <article class="datab">
+    <button mat-raised-button color="primary">Buscar</button>
+  </article>
+  </section>
+</mat-card>
+
+<mat-card>
+<mat-card-content>
   <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-      <div class="card card-stats">
-        <div class="card-header card-header-warning card-header-icon">
-          <div class="card-icon">
-            <span class="material-icons"> grade </span>
-          </div>
-          <h2 class="card-category">Total Habitaciones</h2>
-          <h1 class="card-title">18</h1>
-        </div>
-      </div>
-    </div>
+  <div class = "col">
 
-    <div class="col-md-3">
-      <div class="card card-stats">
-        <div class="card-header card-header-warning card-header-icon">
-          <div class="card-icon">
-            <span class="material-icons"> light_mode </span>
-          </div>
-          <h2 class="card-category">Hab. Disponibles</h2>
-          <h1 class="card-title">12</h1>
-        </div>
-      </div>
-    </div>
+ <table class="table table-striped" >
+    <thead class="thead-dark" >
+      <tr>
+        <th scope="col">N° de Habitacion</th>
+        <th scope="col">Tipo de habitacion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr></tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
 
-    <div class="col-md-3">
-      <div class="card card-stats">
-        <div class="card-header card-header-success card-header-icon">
-          <div class="card-icon">
-            <span class="material-icons"> dark_mode </span>
+        <td >Activo</td>
+        <ng-template #elseBlock>
+          <td>Inactivo</td>
+        </ng-template>
+        <td>
+           <div class="example-button-row">
+           <div class="example-flex-container">
+          <div class="example-button-container">
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"
+                      routerLinkActive="router-link-active" style="margin-right:10px">
+            <mat-icon>edit</mat-icon>
+          </button>
           </div>
-          <h2 class="card-category">Hab. Ocupadas</h2>
-          <h1 class="card-title">6</h1>
-        </div>
-      </div>
-    </div>
+          <div class="example-button-container">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" >
+            <mat-icon>delete</mat-icon>
+          </button>
+          </div>
+          </div>
+          </div>
+        </td>
+    </tbody>
+  </table>
   </div>
-
-  <br />
-  <br />
-  <!--Tabla-->
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-9">
-      <div class="cards">
-        <div class="card-header card-header-warning">
-          <h2 class="card-titles">Información de habitaciones ocupadas</h2>
-        </div>
-        <div class="card-content table-responsive table-full-width">
-          <table class="table table-striped">
-            <thead class="thead-dark">
-              <th>N°</th>
-              <th>Cliente</th>
-              <th>Habitación</th>
-              <th>Tipo</th>
-              <th>Fecha Ingreso</th>
-              <th>Hora Ingreso</th>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Dakota Facturati</td>
-                <td>101</td>
-                <td>Doble</td>
-                <td>10-05-22</td>
-                <td>15:25</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Benito Flores</td>
-                <td>203</td>
-                <td>Individual</td>
-                <td>11-05-22</td>
-                <td>17:27</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Alma Rosa Paredes</td>
-                <td>103</td>
-                <td>Doble</td>
-                <td>09-05-22</td>
-                <td>22:36</td>
-              </tr>
-              <tr>
-                <td>13</td>
-                <td>Marinette Dupaing-Cheng</td>
-                <td>203</td>
-                <td>Doble</td>
-                <td>11-05-22</td>
-                <td>20:06</td>
-              </tr>
-              <tr>
-                <td>14</td>
-                <td>Adrien Agreste</td>
-                <td>106</td>
-                <td>individual</td>
-                <td>08-05-22</td>
-                <td>17:36</td>
-              </tr>
-              <tr>
-                <td>16</td>
-                <td>Luka Couffaine</td>
-                <td>304</td>
-                <td>Suite</td>
-                <td>10-05-22</td>
-                <td>15:05</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
   </div>
-  </body>
-</html>
+</mat-card-content>
+</mat-card>
+<br>
+<mat-card class="card">
+  <mat-card-title>
+    <h1>5 motivos para elegir Marbella Hotel</h1>
+  </mat-card-title>
+  <section class="container-seleccion">
+
+      <article class="selec1">
+        <p class="container-blog-parrafo-more">
+        <mat-icon class="icon-more">attach_money</mat-icon> Precios accesibles</p>
+      </article>
+
+      <article class="selec2">
+        <p class="container-blog-parrafo-more">
+        <mat-icon class="icon-more">lock</mat-icon> Reserva segura</p>
+      </article>
+
+      <article class="selec3">
+        <p class="container-blog-parrafo-more">
+        <mat-icon class="icon-more">build</mat-icon> Gestione sus reservas online</p>
+      </article>
+
+      <article class="selec4">
+        <p class="container-blog-parrafo-more">
+        <mat-icon class="icon-more">campaign</mat-icon> El personal es bilingüe</p>
+      </article>
+
+      <article class="selec5">
+        <p class="container-blog-parrafo-more">
+        <mat-icon class="icon-more">location_on</mat-icon> Excelente ubicación</p>
+      </article>
+  </section>
+</mat-card>
+<br>
+<mat-card>
+  <mat-card-title>
+    <h1> GALERIA DE FOTOS DE MARBELLA HOTEL</h1>
+  </mat-card-title>
+<br><br>
+<section class="container-blog">
+  <article class="container-blog__article first">
+    <p class="container-blog-parrafo">
+    <img src="/assets/img/image1.jpg"
+    width="310"
+    height="251"
+    >
+    </p>
+
+  </article>
+  <article class="container-blog__article second">
+    <p class="container-blog-parrafo">
+    <img src="/assets/img/image9.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+
+  <article class="container-blog__article three">
+    <p class="container-blog-parrafo">
+    <img src="/assets/img/image3.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+  <article class="container-blog__article four">
+    <p a class="container-blog-parrafo">
+    <img src="/assets/img/image4.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+  <article class="container-blog__article five">
+    <p class="container-blog-parrafo">
+    <img  src="/assets/img/image5.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+  <article class="container-blog__article six">
+    <p class="container-blog-parrafo">
+    <img src="/assets/img/image6.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+  <article class="container-blog__article seven">
+    <p class="container-blog-parrafo">
+    <img src="/assets/img/image7.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+  <article class="container-blog__article eight">
+    <p class="container-blog-parrafo">
+    <img src="/assets/img/image8.jpg"
+    width="310"
+    height="251">
+    </p>
+  </article>
+
+</section>
+</mat-card>
+</mat-card>
+</div>
+    </mat-card-content>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>

@@ -39,7 +39,10 @@ import { UsersComponent } from './users/users.component';
 import { FormUsersComponent } from './users/form-users.component';
 import { BusUsersPipe } from './pipes/bus-users.pipe';
 import { LoginComponent } from './login/login.component';
-import { NgxMaskModule} from 'ngx-mask'
+import { NgxMaskModule} from 'ngx-mask';
+import { ReservaComponent } from './reserva/reserva.component'
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -66,6 +69,7 @@ import { NgxMaskModule} from 'ngx-mask'
     FormUsersComponent,
     BusUsersPipe,
     LoginComponent,
+    ReservaComponent,
     
   ],
   imports: [
@@ -89,6 +93,8 @@ import { NgxMaskModule} from 'ngx-mask'
     MatStepperModule,
     MatTableModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     NgxMaskModule.forRoot({
       dropSpecialCharacters: true
 }),

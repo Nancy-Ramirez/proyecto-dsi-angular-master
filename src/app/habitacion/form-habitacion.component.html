@@ -240,45 +240,42 @@ logout
         <!--Caracteristicas de la habitación-->
         <mat-step label="Caracteristicas de la habitación">
           <p>Ponga un cheque en las caracteristicas que posee la habitación</p>
-          <div>
+            <div>
                           <!--CARACTERISTICA TODOLIST-->              
-              <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <mat-form-field 
-                                appearance="fill"
-                                size="50"
-                                style="width: 400px; height: 50px">
-                                    <mat-label>Servicios</mat-label>
-                                    <mat-select multiple [formControl]="toppings" [(ngModel)]="habitacion.caracteristica">
-                                        <mat-select-trigger>
-                                            {{toppings.value ? toppings.value[0] : ''}}
-                                            <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
-                        (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-                      </span>
-                                        </mat-select-trigger>
-
-                                        <mat-option *ngFor="let d of caract" [value]="d.id">{{d.nombre_caracteristica}}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                    <div class="form-group col-md-5">
-                              <table class="table table-striped">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Caracteristicas</th>
-                                    </tr>
-                                </thead>
-                                <tbody *ngFor="let car of habitacion.caracteristica;let indice=index">
-                                    <td>{{car}}</td>
-                                    <td>{{caract?.[car-1]?.nombre_caracteristica}}</td>
-                                </tbody>
-                            </table>
-
-</div>
-                        </div>
-
+             <div class="form-row">
+               <div class="form-group col-md-5">
+                 <mat-form-field 
+                    appearance="fill"
+                    size="50"
+                    style="width: 400px; height: 50px">
+                    <mat-label>Caracteristicas</mat-label>
+                    <mat-select multiple [formControl]="toppings" [(ngModel)]="habitacion.caracteristica">
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                       <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                          (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                       </span>
+                     </mat-select-trigger>
+                     <mat-option *ngFor="let d of caract" [value]="d.id">{{d.nombre_caracteristica}}
+                     </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="form-group col-md-5">
+                 <table class="table table-striped">
+                   <thead class="thead-dark">
+                     <tr>
+                       <th scope="col">ID</th>
+                       <th scope="col">Caracteristicas</th>
+                      </tr>
+                   </thead>
+                   <tbody *ngFor="let car of habitacion.caracteristica;let indice=index">
+                        <td>{{car}}</td>
+                        <td>{{caract?.[car-1]?.nombre_caracteristica}}</td>
+                   </tbody>
+                 </table>
+               </div>
+              </div>
             </div>
             <button mat-button matStepperPrevious>Atrás</button>
             <button mat-button matStepperNext>Siguiente</button>

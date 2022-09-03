@@ -9,12 +9,13 @@ import { FormDepartamentoComponent } from './departamento/form-departamento.comp
 import { CargoComponent } from './cargo/cargo.component';
 import { FormCargoComponent } from './cargo/form-cargo.component';
 import { InicioComponent } from './inicio/inicio.component';
-import { ServicioComponent } from './servicio/servicio.component';
-import { FormServicioComponent } from './servicio/form-servicio.component';
+import { ServicioComponent } from './reserva/servicio.component';
+import { FormServicioComponent } from './reserva/form-servicio.component';
 import { UsersComponent } from './users/users.component';
 import { FormUsersComponent } from './users/form-users.component';
 import { LoginComponent } from './login/login.component';
 import { ReservaComponent } from './reserva/reserva.component';
+import { FormReservaComponent } from './reserva/form-reserva.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,9 @@ const routes: Routes = [
   { path: 'users/form', component: FormUsersComponent},
   { path: 'users/form/:id', component: FormUsersComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'reserva', component: ReservaComponent}
+  { path: 'reserva', component: ReservaComponent},
+  { path: 'reserva/form', component: FormReservaComponent},
+  { path: 'reserva/form/:id', component: FormReservaComponent},
 ];
 
 @NgModule({

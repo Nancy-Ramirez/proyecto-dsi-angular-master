@@ -20,6 +20,7 @@ import { MatSelectModule} from '@angular/material/select';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { FormEmpleadoComponent } from './empleado/form-empleado.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormHabitacionComponent } from './habitacion/form-habitacion.component';
@@ -32,17 +33,19 @@ import { InicioComponent } from './inicio/inicio.component';
 import { BusCargoPipe } from './pipes/bus-cargo.pipe';
 import { BusHabitacionPipe } from './pipes/bus-habitacion.pipe';
 import { BusDepartamentoPipe } from './pipes/bus-departamento.pipe';
-import { ServicioComponent } from './servicio/servicio.component';
+import { ServicioComponent } from './reserva/servicio.component';
 import { BusServicioPipe} from './pipes/bus-servicio.pipe';
-import { FormServicioComponent } from './servicio/form-servicio.component';
+import { FormServicioComponent } from './reserva/form-servicio.component';
 import { UsersComponent } from './users/users.component';
 import { FormUsersComponent } from './users/form-users.component';
 import { BusUsersPipe } from './pipes/bus-users.pipe';
 import { LoginComponent } from './login/login.component';
 import { NgxMaskModule} from 'ngx-mask';
 import { ReservaComponent } from './reserva/reserva.component'
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FormReservaComponent } from './reserva/form-reserva.component';
+import { BusReservaPipe } from './pipes/bus-reserva.pipe';
 
 
 @NgModule({
@@ -70,6 +73,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     BusUsersPipe,
     LoginComponent,
     ReservaComponent,
+    BusReservaPipe,
+    FormReservaComponent,
     
   ],
   imports: [
@@ -88,6 +93,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
+    MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
     MatStepperModule,
@@ -103,3 +109,4 @@ import { MatNativeDateModule } from '@angular/material/core';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+

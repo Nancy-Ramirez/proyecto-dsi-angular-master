@@ -11,7 +11,7 @@
         ><i class="material-icons">&#xE88A;</i> Inicio</a
       >
 
-      <a mat-list-item routerLink="#"
+      <a mat-list-item routerLink="/reserva"
         ><span class="material-icons"> event_seat </span> Reservas</a
       >
 
@@ -50,16 +50,7 @@
 
   <mat-sidenav-content>
     <mat-toolbar class="colors">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-      >
-  <span><span class="material-icons">
-menu
-</span></span>
-  <span class="example-spacer"></span>
-      </button>
+
       <span class="fill-remaining-space"> </span>
       <span >   
   <a mat-button href="/login" 
@@ -71,10 +62,10 @@ logout
 
     </mat-toolbar>
     <mat-card-content>
-      <div class="largo">
-  <h1>RESERVAS</h1>
-  <button class="btn btn-info" type="button" routerLink="/reserva/form">
-    Nueva Reserva
+<div class="largo">
+  <h1>SERVICIOS</h1>
+  <button class="btn btn-info" type="button" routerLink="/servicios/form">
+    Registrar Servicio
   </button>
   <br />
   <br />
@@ -82,58 +73,64 @@ logout
     <div class="col">
       <div class="form-group">
         <input
-         type="text"
-          name="filterHabitacion"
+          type="text"
+          name="filterServicio"
           class="form-control"
           placeholder="Buscar"
-          [(ngModel)]="filterReserva"
+          [(ngModel)]="filterServicio"
         />
       </div>
     </div>
   </div>
 <div class="row">
   <div class = "col">
-  <table class="table table-striped">
-    <thead class="thead-dark">
+
+ <table class="table table-striped" >
+    <thead class="thead-dark" >
       <tr>
-        <th scope="col">ID Reserva</th>
-        <th scope="col">Nombre cliente</th>
-        <th scope="col">N° habitación</th>
+        <th scope="col">Nombre de servicio</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Capacidad</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
       <tr
-        *ngFor="
-          let reserva of reserva | busReserva: filterReserva
+         *ngFor="
+          let Servicio of servicio | busServicio: filterServicio
         "
-      >
-        <th scope="row">{{ reserva.id }}</th>
-        <td>{{ reserva.nombre_cliente }}</td>
-        <td>{{ reserva.id_habitacion }}</td>
-         <td>
+      >       
+        <th scope="row">{{ Servicio.nombre_servicio }}</th>
+        <td>{{ Servicio.descripcion }}</td>
+        <td>{{ Servicio.precio }}</td>
+        <td>{{ Servicio.capacidad }}</td>
+
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">
-          <button mat-mini-fab class="btnEditar" aria-label="edit icon"
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/servicios/form', Servicio.id]"
             routerLinkActive="router-link-active" style="margin-right:10px">
             <mat-icon>edit</mat-icon>
           </button>
           </div>
           <div class="example-button-container">
-          <button mat-mini-fab color="warn" aria-label="delete icon">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(Servicio)">
             <mat-icon>delete</mat-icon>
           </button>
           </div>
           </div>
           </div>
-        </td>
-     </tbody>
+      </tr>
+    </tbody>
   </table>
 </div>
-</div>
+  </div>
 </div>
     </mat-card-content>
   </mat-sidenav-content>
   
 </mat-sidenav-container>
+
+
+

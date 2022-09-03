@@ -3,26 +3,30 @@
     <mat-toolbar class="colors">
       <span class="fill-remaining-space"> </span>
       <span >   
-  <a mat-button href="/login" 
-  target="_blank"><span class="material-icons">
-logout
-</span>Salir</a>
+  <a mat-button routerLink="/reserva" ><span class="material-icons">
+home
+</span>Menú</a>
 </span>
-
+      <span >   
+  <a mat-button routerLink="/login" ><span class="material-icons">
+logout
+</span>Login</a>
+</span>
     </mat-toolbar>
     <mat-card-content>
 <div class="largo">
   <!-- Cards-->
   
   <mat-card-content>
-    <img src="/assets/img/image2.jpg"
+    <img src="/assets/img/marbella.jpeg"
     width="1310">
   </mat-card-content>
 <mat-card>
   <mat-card class="card">
     <div class="sobrenosotros">
     <mat-card-header sobrenosotros>
-      <h1> <br>SOBRE NOSOTROS</h1>
+      <h1> <br>SOBRE NOSOTROS <br></h1>
+      <br> <br>
       <h3>Este hotel de diseño está situado en el barrio marítimo.
       Ofrece terraza elegante con vistas al puerto, recepción 24 horas, conexión Wi-Fi gratuita y habitaciones con aire acondicionado y TV smart. 
       <br>Las habitaciones del Hotel presentan una decoración moderna y una iluminación innovadora e incluyen baño privado con secador de pelo. 
@@ -94,9 +98,9 @@ logout
     <thead class="thead-dark" >
       <tr>
         <th scope="col">N° de Habitacion</th>
-        <th scope="col">Tipo de habitacion</th>
+        <th scope="col">Descripción/th>
         <th scope="col">Precio</th>
-        <th scope="col">Estado</th>
+        <th scope="col">Personas max</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
@@ -105,28 +109,22 @@ logout
         <th scope="row"></th>
         <td></td>
         <td></td>
-
-        <td >Activo</td>
-        <ng-template #elseBlock>
-          <td>Inactivo</td>
-        </ng-template>
-        <td>
+        <td></td>
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">
-          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"
+          <button mat-mini-fab class="btnVerInfor" aria-label="Example icon button with a edit icon"
                       routerLinkActive="router-link-active" style="margin-right:10px">
-            <mat-icon>edit</mat-icon>
+            <mat-icon>visibility</mat-icon>
           </button>
           </div>
           <div class="example-button-container">
           <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" >
-            <mat-icon>delete</mat-icon>
+            <mat-icon>room_service</mat-icon>
           </button>
           </div>
           </div>
           </div>
-        </td>
     </tbody>
   </table>
   </div>

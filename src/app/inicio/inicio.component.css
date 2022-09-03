@@ -154,3 +154,7 @@ h3{
 h1{
   text-align: center;
 }
+button {
+  background-color: #3f778f;
+  margin: 1;
+}

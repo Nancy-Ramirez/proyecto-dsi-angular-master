@@ -23,8 +23,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
-import { FormHabitacionComponent } from './habitacion/form-habitacion.component';
-import { HabitacionComponent } from './habitacion/habitacion.component';
+import { FormHabitacionComponent } from './reserva/form-habitacion.component';
+import { HabitacionComponent } from './reserva/habitacion.component';
 import { DepartamentoComponent } from './departamento/departamento.component';
 import { CargoComponent } from './cargo/cargo.component';
 import { FormDepartamentoComponent } from './departamento/form-departamento.component';
@@ -46,6 +46,11 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormReservaComponent } from './reserva/form-reserva.component';
 import { BusReservaPipe } from './pipes/bus-reserva.pipe';
+import { VerHabitacionComponent } from './reserva/ver-habitacion.component';
+import { MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ReportesComponent } from './reportes/reportes.component';
 
 
 @NgModule({
@@ -75,6 +80,8 @@ import { BusReservaPipe } from './pipes/bus-reserva.pipe';
     ReservaComponent,
     BusReservaPipe,
     FormReservaComponent,
+    VerHabitacionComponent,
+    ReportesComponent,
     
   ],
   imports: [
@@ -101,6 +108,9 @@ import { BusReservaPipe } from './pipes/bus-reserva.pipe';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressBarModule,
+    MatTooltipModule,
+    MatPaginatorModule,
     NgxMaskModule.forRoot({
       dropSpecialCharacters: true
 }),

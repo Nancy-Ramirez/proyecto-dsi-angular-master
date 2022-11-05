@@ -158,3 +158,20 @@ button {
   background-color: #3f778f;
   margin: 1;
 }
+.btnReserv{
+  background-color: rgb(55, 190, 55);
+}
+.btnVer{
+  background-color: rgba(248, 182, 0, 0.856);
+}
+.iconss {
+  font-size: 12px;
+  color: #3f778f;
+}
+.gigi{
+  font-size: 12px;
+  color: #053663;
+}
+.blanco{
+  color:aliceblue;
+}

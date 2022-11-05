@@ -2,246 +2,322 @@
   <mat-sidenav-content>
     <mat-toolbar class="colors">
       <span class="fill-remaining-space"> </span>
-      <span >   
-  <a mat-button routerLink="/reserva" ><span class="material-icons">
-home
-</span>Menú</a>
-</span>
-      <span >   
-  <a mat-button routerLink="/login" ><span class="material-icons">
-logout
-</span>Login</a>
-</span>
+      <span>
+        <a
+          mat-button
+          routerLink="/reserva"
+          *ngIf="loginService.isLoggedIn$ | async"
+          ><span class="material-icons"> hotel </span>Reserva</a
+        >
+      </span>
+      <span>
+        <a
+          mat-button
+          routerLink="/login"
+          *ngIf="loginService.isLoggedIn$ | async"
+          ><span class="material-icons"> login </span>Login</a
+        >
+      </span>
     </mat-toolbar>
     <mat-card-content>
-<div class="largo">
-  <!-- Cards-->
-  
-  <mat-card-content>
-    <img src="/assets/img/marbella.jpeg"
-    width="1310">
-  </mat-card-content>
-<mat-card>
-  <mat-card class="card">
-    <div class="sobrenosotros">
-    <mat-card-header sobrenosotros>
-      <h1> <br>SOBRE NOSOTROS <br></h1>
-      <br> <br>
-      <h3>Este hotel de diseño está situado en el barrio marítimo.
-      Ofrece terraza elegante con vistas al puerto, recepción 24 horas, conexión Wi-Fi gratuita y habitaciones con aire acondicionado y TV smart. 
-      <br>Las habitaciones del Hotel presentan una decoración moderna y una iluminación innovadora e incluyen baño privado con secador de pelo. 
-      A 5 minutos a pie del Hotel encontrará buenos restaurantes especializados en marisco.
-      <br>El Marbella se encuentra a 3 minutos a pie de la barra de Santiago, a 10 minutos a pie del precioso barrio del Born y a 7 minutos a pie del mirador.</h3>
-    </mat-card-header>
-    </div>
-<br>
-    <mat-card-title>
-      <h2>Servicios más populares </h2>
-    </mat-card-title>    
-    <section class="container-services">
-      <article class="service1">
-        <p class="container-blog-parrafo">
-          <mat-icon class="icon">smoke_free</mat-icon>
-          Habitaciones sin humo </p>
-      </article>
+      <div class="largo">
+        <!-- Cards-->
 
-      <article class="service2">
-        <p class="container-blog-parrafo">
-       <mat-icon class="icon">wifi</mat-icon> Wifi en todo el alojamiento </p>
-      </article>
+        <mat-card-content>
+          <img src="/assets/img/marbella.jpeg" width="100%" />
+        </mat-card-content>
+        <mat-card>
+          <mat-card class="card">
+            <div class="sobrenosotros">
+              <mat-card-header sobrenosotros>
+                <h1><br />SOBRE NOSOTROS <br /></h1>
+                <br />
+                <br />
+                <h3>
+                  Este hotel de diseño está situado en el barrio marítimo.
+                  Ofrece terraza elegante con vistas al puerto, recepción 24
+                  horas, conexión Wi-Fi gratuita y habitaciones con aire
+                  acondicionado y TV smart. <br />Las habitaciones del Hotel
+                  presentan una decoración moderna y una iluminación innovadora
+                  e incluyen baño privado con secador de pelo. A 5 minutos a pie
+                  del Hotel encontrará buenos restaurantes especializados en
+                  marisco. <br />El Marbella se encuentra a 3 minutos a pie de
+                  la barra de Santiago, a 10 minutos a pie del precioso barrio
+                  del Born y a 7 minutos a pie del mirador.
+                </h3>
+              </mat-card-header>
+            </div>
+            <br />
+            <mat-card-title>
+              <h2>Servicios más populares</h2>
+            </mat-card-title>
+            <section class="container-services">
+              <article class="service1">
+                <p class="container-blog-parrafo">
+                  <mat-icon class="icon">smoke_free</mat-icon>
+                  Habitaciones sin humo
+                </p>
+              </article>
 
-      <article class="service3">
-        <p class="container-blog-parrafo">
-        <mat-icon class="icon">av_timer</mat-icon> Recepción 24 horas </p>
-      </article>
+              <article class="service2">
+                <p class="container-blog-parrafo">
+                  <mat-icon class="icon">wifi</mat-icon> Wifi en todo el
+                  alojamiento
+                </p>
+              </article>
 
-      <article class="service4">
-        <p class="container-blog-parrafo">
-        <mat-icon class="icon">local_bar</mat-icon> Bar </p>
-      </article>
+              <article class="service3">
+                <p class="container-blog-parrafo">
+                  <mat-icon class="icon">av_timer</mat-icon> Recepción 24 horas
+                </p>
+              </article>
 
-      <article class="service5">
-        <p class="container-blog-parrafo">
-        <mat-icon class="icon">beach_access</mat-icon> Situado frente a playa </p>
-      </article>
-    </section>
-<br>
-  <mat-card-title>
-    <h2>Disponibilidad</h2>
-  </mat-card-title>
-  <section class="container-disponibilidad">
-    <article class="datap">
-    <mat-form-field appearance="fill">
-  <mat-label>Enter a date range</mat-label>
-  <mat-date-range-input [rangePicker]="picker">
-    <input matStartDate placeholder="Start date">
-    <input matEndDate placeholder="End date">
-  </mat-date-range-input>
-  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-date-range-picker #picker></mat-date-range-picker>
-  </mat-form-field>
-  </article>
+              <article class="service4">
+                <p class="container-blog-parrafo">
+                  <mat-icon class="icon">local_bar</mat-icon> Bar
+                </p>
+              </article>
 
-   <article class="datab">
-    <button mat-raised-button color="primary">Buscar</button>
-  </article>
-  </section>
-</mat-card>
+              <article class="service5">
+                <p class="container-blog-parrafo">
+                  <mat-icon class="icon">beach_access</mat-icon> Situado frente
+                  a playa
+                </p>
+              </article>
+            </section>
+            <br />
+            <mat-card-title>
+              <h2>Disponibilidad</h2>
+            </mat-card-title>
+            <section class="container-disponibilidad">
+              <article class="datap">
+                <mat-form-field appearance="fill">
+                  <mat-label>Enter a date range</mat-label>
+                  <mat-date-range-input [rangePicker]="picker">
+                    <input
+                      matStartDate
+                      placeholder="Start date"
+                      [(ngModel)]="fechaInicio"
+                    />
+                    <input
+                      matEndDate
+                      placeholder="End date"
+                      [(ngModel)]="fechaFin"
+                    />
+                  </mat-date-range-input>
+                  <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+              </article>
 
-<mat-card>
-<mat-card-content>
-  <div class="row">
-  <div class = "col">
+              <article class="datab" style="align-items: center">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  style="border-radius: 10px; height: 50%; align-items: center"
+                  (click)="buscar()"
+                >
+                  Ver disponibilidad
+                </button>
+              </article>
+            </section>
+          </mat-card>
 
- <table class="table table-striped" >
-    <thead class="thead-dark" >
-      <tr>
-        <th scope="col">N° de Habitacion</th>
-        <th scope="col">Descripción/th>
-        <th scope="col">Precio</th>
-        <th scope="col">Personas max</th>
-        <th scope="col">Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr></tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
-           <div class="example-button-row">
-           <div class="example-flex-container">
-          <div class="example-button-container">
-          <button mat-mini-fab class="btnVerInfor" aria-label="Example icon button with a edit icon"
-                      routerLinkActive="router-link-active" style="margin-right:10px">
-            <mat-icon>visibility</mat-icon>
-          </button>
-          </div>
-          <div class="example-button-container">
-          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" >
-            <mat-icon>room_service</mat-icon>
-          </button>
-          </div>
-          </div>
-          </div>
-    </tbody>
-  </table>
-  </div>
-  </div>
-</mat-card-content>
-</mat-card>
-<br>
-<mat-card class="card">
-  <mat-card-title>
-    <h1>5 motivos para elegir Marbella Hotel</h1>
-  </mat-card-title>
-  <section class="container-seleccion">
+          <mat-card>
+            <mat-card-content>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <table class="table table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Tipo de habitación</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Capacidad</th>
+                        <th scope="col">Disponibilidad</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of habitaciones_disponibles">
+                        <th scope="row">
+                          <!--Tipo y descripcion de habitación-->
+                          
+                             <mat-icon mat-list-icon>bed</mat-icon>
+                             <div mat-line>{{item.tipo_habitacion}}</div>
+                           
+                          <h4>{{item.descripcion_habitacion}}</h4>
+                        </th>
+                        <td>
+                          <!--Precio de habitación-->
+                          <mat-list>
+                           <mat-list-item >
+                             <div mat-line>${{item.precio}} 
+                              <h6>Incluye impuestos y cargos </h6></div>
+                           </mat-list-item>
+                          </mat-list>
+                        </td>
+                        <td>
+                          <!--Capacidad de habitación-->
+                          <mat-list>
+                           <mat-list-item >
+                             <mat-icon mat-list-icon>person</mat-icon>
+                             <div mat-line>{{item.capacidad}}</div>
+                           </mat-list-item>
+                          </mat-list>
+                        </td>
+                        <td *ngIf="item.estado_habitacion==false">
+                        <!--Capacidad de habitación-->
+                          {{item.fecha_disponibilidad}} at 
+                          {{item.hora_disponibilidad}}
+                        <td *ngIf="item.estado_habitacion==true">
+                        <!--Capacidad de habitación-->
+                         {{"Disponible"}}
+                        </td>
+                        <td>
+                          <div class="example-button-row">
+                            <div class="example-flex-container">
+                              <div class="example-button-container">
+                              <div class="example-button-container">
+                                 <button mat-raised-button class="btnReserv"
+                                         matTooltip="¡Reserva Ahora!"
+                                         aria-tooltip="Button that displays and hides a tooltip triggered by other buttons" 
+                                         [routerLink]="['/reserva/form']"
+                                         routerLinkActive="router-link-active" 
+                                         style="margin-right:10px"
+                                         (click)="btnEnviarHijo(item.id)">
+                                   <mat-icon class="blanco">event_available</mat-icon>
+                                 </button>
+                              </div>
+                              <br>
+                              </div>
+                              <div class="example-button-container">
+                                 <button mat-raised-button class="btnVer" 
+                                         matTooltip="Ver Información"
+                                         aria-tooltip="Button that displays and hides a tooltip triggered by other buttons" 
+                                         [routerLink]="['/verhabitacion/form', item.id]"
+                                         routerLinkActive="router-link-active" 
+                                         style="margin-right:10px">
+                                   <mat-icon class="blanco">visibility</mat-icon>
+                                 </button>
+                              </div>
+                              <div class="example-button-container">
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <br />
+          <mat-card class="card">
+            <mat-card-title>
+              <h1>5 motivos para elegir Marbella Hotel</h1>
+            </mat-card-title>
+            <section class="container-seleccion">
+              <article class="selec1">
+                <p class="container-blog-parrafo-more">
+                  <mat-icon class="icon-more">attach_money</mat-icon> Precios
+                  accesibles
+                </p>
+              </article>
 
-      <article class="selec1">
-        <p class="container-blog-parrafo-more">
-        <mat-icon class="icon-more">attach_money</mat-icon> Precios accesibles</p>
-      </article>
+              <article class="selec2">
+                <p class="container-blog-parrafo-more">
+                  <mat-icon class="icon-more">lock</mat-icon> Reserva segura
+                </p>
+              </article>
 
-      <article class="selec2">
-        <p class="container-blog-parrafo-more">
-        <mat-icon class="icon-more">lock</mat-icon> Reserva segura</p>
-      </article>
+              <article class="selec3">
+                <p class="container-blog-parrafo-more">
+                  <mat-icon class="icon-more">build</mat-icon> Gestione sus
+                  reservas online
+                </p>
+              </article>
 
-      <article class="selec3">
-        <p class="container-blog-parrafo-more">
-        <mat-icon class="icon-more">build</mat-icon> Gestione sus reservas online</p>
-      </article>
+              <article class="selec4">
+                <p class="container-blog-parrafo-more">
+                  <mat-icon class="icon-more">campaign</mat-icon> El personal es
+                  bilingüe
+                </p>
+              </article>
 
-      <article class="selec4">
-        <p class="container-blog-parrafo-more">
-        <mat-icon class="icon-more">campaign</mat-icon> El personal es bilingüe</p>
-      </article>
+              <article class="selec5">
+                <p class="container-blog-parrafo-more">
+                  <mat-icon class="icon-more">location_on</mat-icon> Excelente
+                  ubicación
+                </p>
+              </article>
+            </section>
+          </mat-card>
+          <br />
+          <mat-card>
+            <mat-card-title>
+              <h1>GALERIA DE FOTOS DE MARBELLA HOTEL</h1>
+            </mat-card-title>
+            <br /><br />
+            <section class="container-blog">
+              <article class="container-blog__article first">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image1.jpg" width="310" height="251" />
+                </p>
+              </article>
+              <article class="container-blog__article second">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image9.jpg" width="310" height="251" />
+                </p>
+              </article>
 
-      <article class="selec5">
-        <p class="container-blog-parrafo-more">
-        <mat-icon class="icon-more">location_on</mat-icon> Excelente ubicación</p>
-      </article>
-  </section>
-</mat-card>
-<br>
-<mat-card>
-  <mat-card-title>
-    <h1> GALERIA DE FOTOS DE MARBELLA HOTEL</h1>
-  </mat-card-title>
-<br><br>
-<section class="container-blog">
-  <article class="container-blog__article first">
-    <p class="container-blog-parrafo">
-    <img src="/assets/img/image1.jpg"
-    width="310"
-    height="251"
-    >
-    </p>
+              <article class="container-blog__article three">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image3.jpg" width="310" height="251" />
+                </p>
+              </article>
 
-  </article>
-  <article class="container-blog__article second">
-    <p class="container-blog-parrafo">
-    <img src="/assets/img/image9.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
+              <article class="container-blog__article four">
+                <p a class="container-blog-parrafo">
+                  <img src="/assets/img/image4.jpg" width="310" height="251" />
+                </p>
+              </article>
 
+              <article class="container-blog__article five">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image5.jpg" width="310" height="251" />
+                </p>
+              </article>
 
-  <article class="container-blog__article three">
-    <p class="container-blog-parrafo">
-    <img src="/assets/img/image3.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
+              <article class="container-blog__article six">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image6.jpg" width="310" height="251" />
+                </p>
+              </article>
 
-  <article class="container-blog__article four">
-    <p a class="container-blog-parrafo">
-    <img src="/assets/img/image4.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
+              <article class="container-blog__article seven">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image7.jpg" width="310" height="251" />
+                </p>
+              </article>
 
-  <article class="container-blog__article five">
-    <p class="container-blog-parrafo">
-    <img  src="/assets/img/image5.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
-
-  <article class="container-blog__article six">
-    <p class="container-blog-parrafo">
-    <img src="/assets/img/image6.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
-
-  <article class="container-blog__article seven">
-    <p class="container-blog-parrafo">
-    <img src="/assets/img/image7.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
-
-  <article class="container-blog__article eight">
-    <p class="container-blog-parrafo">
-    <img src="/assets/img/image8.jpg"
-    width="310"
-    height="251">
-    </p>
-  </article>
-
-</section>
-</mat-card>
-</mat-card>
-</div>
+              <article class="container-blog__article eight">
+                <p class="container-blog-parrafo">
+                  <img src="/assets/img/image8.jpg" width="310" height="251" />
+                </p>
+              </article>
+            </section>
+          </mat-card>
+        </mat-card>
+      </div>
     </mat-card-content>
   </mat-sidenav-content>
-  
 </mat-sidenav-container>

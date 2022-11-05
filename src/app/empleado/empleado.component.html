@@ -11,16 +11,12 @@
         ><i class="material-icons">&#xE88A;</i> Inicio</a
       >
 
-     <a mat-list-item routerLink="/reserva" 
+      <a mat-list-item routerLink="/reserva"
         ><span class="material-icons"> event_seat </span> Reservas</a
       >
 
       <a mat-list-item routerLink="/servicios"
         ><span class="material-icons"> room_service </span>Servicios</a
-      >
-
-      <a mat-list-item routerLink="#"
-        ><span class="material-icons"> attach_money </span> Facturación</a
       >
 
       <a mat-list-item routerLink="/habitaciones"
@@ -43,6 +39,10 @@
         ><span class="material-icons"> account_circle </span>Usuarios</a
       >
 
+      <a mat-list-item routerLink="/reportes"
+        ><span class="material-icons"> description </span> Reportes</a
+      >
+
     </mat-nav-list>
     <mat-toolbar class="colorico"> </mat-toolbar>
     <mat-toolbar class="colorico"> </mat-toolbar>
@@ -55,84 +55,94 @@
         aria-label="Toggle sidenav"
         mat-icon-button
       >
-  <span><span class="material-icons">
-menu
-</span></span>
   <span class="example-spacer"></span>
       </button>
       <span class="fill-remaining-space"> </span>
       <span >   
   <a mat-button href="/login" 
-  target="_blank"><span class="material-icons">
+><span class="material-icons">
 logout
 </span>Salir</a>
 
 </span>
 
     </mat-toolbar>
-    <mat-card-content>
-<div class="largo">
-  <h1>PERSONAL</h1>
-  <button class="btn btn-info" type="button" routerLink="/empleados/form">
-    Registrar personal
-  </button>
-  <br />
-  <br />
-  <div class="row">
-    <div class="col">
-      <div class="form-group">
-        <input
-          type="text"
-          name="filterEmpleado"
-          class="form-control"
-          placeholder="Buscar"
-          [(ngModel)]="filterEmpleado"
-        />
+    <mat-card>
+<mat-card-content>
+  <div class="largo">
+    <h1>PERSONAL</h1>
+    <button class="btn btn-info" type="button" routerLink="/empleados/form">
+      Registrar personal
+    </button>
+    <br />
+    <br />
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input
+            type="text"
+            name="filterEmpleado"
+            class="form-control"
+            placeholder="Buscar"
+            [(ngModel)]="filterEmpleado"
+          />
+        </div>
       </div>
     </div>
+
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of empleados | filter: filterEmpleado">
+          <th scope="row">{{ empleado.id }}</th>
+          <td>{{ empleado.nombres }}</td>
+          <td>{{ empleado.apellidos }}</td>
+          <div *ngFor="let carg of cargo">
+            <td *ngIf="empleado.id_cargo === carg.id">
+              {{ carg.nombre_cargo }}
+            </td>
+          </div>
+          <td>
+            <div class="example-button-row">
+              <div class="example-flex-container">
+                <div class="example-button-container">
+                  <button
+                    mat-mini-fab
+                    class="btnEditar"
+                    aria-label="Example icon button with a edit icon"
+                    [routerLink]="['/empleados/form', empleado.id]"
+                    routerLinkActive="router-link-active"
+                    style="margin-right: 10px"
+                  >
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+                <div class="example-button-container">
+                  <button
+                    mat-mini-fab
+                    color="warn"
+                    aria-label="Example icon button with a delete icon"
+                    (click)="delete(empleado)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nombres</th>
-        <th scope="col">Apellidos</th>
-        <th scope="col">Cargo</th>
-        <th scope="col">Opciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let empleado of empleados | filter: filterEmpleado">
-        <th scope="row">{{ empleado.id }}</th>
-        <td>{{ empleado.nombres }}</td>
-        <td>{{ empleado.apellidos }}</td>
-        <div *ngFor="let carg of cargo">
-          <td *ngIf="empleado.id_cargo === carg.id">{{ carg.nombre_cargo }}</td>
-        </div>
-<td>
-           <div class="example-button-row">
-           <div class="example-flex-container">
-          <div class="example-button-container">
-          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/empleados/form', empleado.id]"
-            routerLinkActive="router-link-active" style="margin-right:10px">
-            <mat-icon>edit</mat-icon>
-          </button>
-          </div>
-          <div class="example-button-container">
-          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(empleado)">
-            <mat-icon>delete</mat-icon>
-          </button>
-          </div>
-          </div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-    </mat-card-content>
-  </mat-sidenav-content>
-  
+</mat-card-content>
+</mat-card>
+</mat-sidenav-content>
 </mat-sidenav-container>
-

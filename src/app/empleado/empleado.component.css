@@ -11,10 +11,8 @@ h1 {
   flex-wrap: nonrap;
 }
 mat-card-content{
-
-width: 900px;
+display: stretch;
 align-content: center;
-
 }
 .btnEditar{
   background-color:gold;

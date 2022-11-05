@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './login.service';
-import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
-import { BarraLateralComponent } from '../barra-lateral/barra-lateral.component';
+import { Router } from '@angular/router';
+import swal from 'sweetalert2';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -25,12 +25,16 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.loginService.loginUser(this.input).subscribe(
       (response) => {
-        alert(response.message);
-        console.log(response.message);
+        swal.fire('Inicio de sesión exitoso!', response.message, 'success');
+        // alert(response.message);
+        // console.log(response.message);
+        // console.log(response.token);
+        console.log(response);
         this.router.navigate(["inicio"]);
       },
       (e) => {
-        alert(e.error.error);
+        // alert(e.error.error);
+        swal.fire('Inicio de sesión no exitoso!', e.error.error, 'warning');
         this.input = {
           username: '',
           password: '',
@@ -38,5 +42,13 @@ export class LoginComponent implements OnInit {
         console.log(e);
       }
     );
+  }
+
+  refreskToken(){
+    // this.loginService.refreshToken();
+  }
+
+  logout(){
+    this.loginService.logOutUser();
   }
 }

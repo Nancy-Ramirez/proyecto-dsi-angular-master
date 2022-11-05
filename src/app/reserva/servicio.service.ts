@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Servicio} from './servicio';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Servicio } from './servicio';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServicioService {
-  private url: string = 'http://127.0.0.1:8000/reserva';
+  private url: string = 'http://127.0.0.1:8000/reserva/servicio/';
   constructor(private http: HttpClient) {}
 
   // obtiene una lista de Servicios de la base

@@ -1,0 +1,36 @@
+.sobrenosotros {
+  background: #f0f2f3 ;
+  border-radius: 10px;
+}
+.card{
+  max-width: 1250px;
+   margin: 0 auto;
+   display: flex;
+}
+.text-table {
+  color: black;
+}
+
+.card-titles {
+  color: Black;
+  text-align: center;
+}
+body{
+  background: whitesmoke;
+}
+
+.example-spacer, .fill-remaining-space{
+  flex: 1 1 auto;
+}
+
+.colors, .active:focus {
+  background-color: #3f778f   ;
+  text-align: center;
+}
+
+.mat-subheader, h1{
+  text-align: center;
+}
+.mad{
+width: 100%;
+}

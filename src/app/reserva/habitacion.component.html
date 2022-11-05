@@ -50,7 +50,13 @@
 
   <mat-sidenav-content>
     <mat-toolbar class="colors">
-
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+      >
+  <span class="example-spacer"></span>
+      </button>
       <span class="fill-remaining-space"> </span>
       <span >   
   <a mat-button href="/login" 
@@ -64,9 +70,9 @@ logout
     <mat-card>
     <mat-card-content>
 <div class="largo">
-  <h1>SERVICIOS</h1>
-  <button class="btn btn-info" type="button" routerLink="/servicios/form">
-    Registrar Servicio
+  <h1>HABITACIONES</h1>
+  <button class="btn btn-info" type="button" routerLink="/habitaciones/form">
+    Registrar Habitación
   </button>
   <br />
   <br />
@@ -75,10 +81,10 @@ logout
       <div class="form-group">
         <input
           type="text"
-          name="filterServicio"
+          name="filterHabitacion"
           class="form-control"
           placeholder="Buscar"
-          [(ngModel)]="filterServicio"
+          [(ngModel)]="filterHabitacion"
         />
       </div>
     </div>
@@ -89,43 +95,48 @@ logout
  <table class="table table-striped" >
     <thead class="thead-dark" >
       <tr>
-        <th scope="col">Nombre de servicio</th>
-        <th scope="col">Descripción</th>
+        <th scope="col">N° de Habitacion</th>
+        <th scope="col">Tipo de habitacion</th>
         <th scope="col">Precio</th>
-        <th scope="col">Capacidad</th>
+        <th scope="col">Estado</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
     <tbody>
       <tr
-         *ngFor="
-          let Servicio of servicio | busServicio: filterServicio
+        *ngFor="
+          let habitacion of habitaciones | busHabitacion: filterHabitacion
         "
-      >       
-        <th scope="row">{{ Servicio.nombre_servicio }}</th>
-        <td>{{ Servicio.descripcion }}</td>
-        <td>{{ Servicio.precio }}</td>
-        <td>{{ Servicio.capacidad }}</td>
+      >
+        <th scope="row">{{ habitacion.numero_habitacion }}</th>
+        <td>{{ habitacion.tipo_habitacion }}</td>
+        <td>{{ habitacion.precio }}</td>
 
+        <td *ngIf="habitacion.estado_habitacion; else elseBlock">Activo</td>
+        <ng-template #elseBlock>
+          <td>Inactivo</td>
+        </ng-template>
+        <td>
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">
-          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/servicios/form', Servicio.id]"
+          <button mat-mini-fab class="btnEditar" aria-label="Example icon button with a edit icon"[routerLink]="['/habitaciones/form', habitacion.id]"
             routerLinkActive="router-link-active" style="margin-right:10px">
             <mat-icon>edit</mat-icon>
           </button>
           </div>
           <div class="example-button-container">
-          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(Servicio)">
+          <button mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete(habitacion)">
             <mat-icon>delete</mat-icon>
           </button>
           </div>
           </div>
           </div>
+        </td>
       </tr>
     </tbody>
   </table>
-</div>
+  </div>
   </div>
 </div>
     </mat-card-content>
@@ -133,6 +144,4 @@ logout
   </mat-sidenav-content>
   
 </mat-sidenav-container>
-
-
 

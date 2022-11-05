@@ -35,25 +35,11 @@ mat-nav-list, .colorico {
   justify-content: center;
   width: 209px;
   height: 100%;
-  background: rgb(255, 255, 255);
+  background: white;
 }
 .largo{
   justify-content: center;
 display: stretch;
 align-content: center;
   height: 590px;
-}
-.card{
-  max-width: 1000px;
-   margin: 0 auto;
-   display: flex;
-  border-radius: 2px;
-}
-.TableService{
-  max-width: 1000;
-  margin: 0 auto;
-  display: flex;
-}
-p {
-  font-weight: bold;
 }

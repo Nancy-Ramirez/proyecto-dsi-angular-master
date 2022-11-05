@@ -19,10 +19,6 @@
         ><span class="material-icons"> room_service </span>Servicios</a
       >
 
-      <a mat-list-item routerLink="#"
-        ><span class="material-icons"> attach_money </span> Facturación</a
-      >
-
       <a mat-list-item routerLink="/habitaciones"
         ><span class="material-icons"> bed </span>Habitación</a
       >
@@ -43,6 +39,10 @@
         ><span class="material-icons"> account_circle </span>Usuarios</a
       >
 
+      <a mat-list-item routerLink="/reportes"
+        ><span class="material-icons"> description </span> Reportes</a
+      >
+
     </mat-nav-list>
     <mat-toolbar class="colorico"> </mat-toolbar>
     <mat-toolbar class="colorico"> </mat-toolbar>
@@ -55,21 +55,18 @@
         aria-label="Toggle sidenav"
         mat-icon-button
       >
-  <span><span class="material-icons">
-menu
-</span></span>
   <span class="example-spacer"></span>
       </button>
       <span class="fill-remaining-space"> </span>
       <span >   
-  <a mat-button href="/login" 
-  target="_blank"><span class="material-icons">
+  <a mat-button href="/login" ><span class="material-icons">
 logout
 </span>Salir</a>
 
 </span>
 
     </mat-toolbar>
+    <mat-card>
     <mat-card-content>
       <div class="largo">
   <h1>RESERVAS</h1>
@@ -109,19 +106,19 @@ logout
         "
       >
         <th scope="row">{{ reserva.id }}</th>
-        <td>{{ reserva.nombre_cliente }}</td>
+        <td>{{ reserva.nombre_completo }}</td>
         <td>{{ reserva.id_habitacion }}</td>
          <td>
            <div class="example-button-row">
            <div class="example-flex-container">
           <div class="example-button-container">
-          <button mat-mini-fab class="btnEditar" aria-label="edit icon"
+          <button mat-mini-fab class="btnEditar" aria-label="edit icon"[routerLink]="['/reserva/form', reserva.id]"
             routerLinkActive="router-link-active" style="margin-right:10px">
             <mat-icon>edit</mat-icon>
           </button>
           </div>
           <div class="example-button-container">
-          <button mat-mini-fab color="warn" aria-label="delete icon">
+          <button mat-mini-fab color="warn" aria-label="delete icon" (click)="delete(reserva)" >
             <mat-icon>delete</mat-icon>
           </button>
           </div>
@@ -134,6 +131,7 @@ logout
 </div>
 </div>
     </mat-card-content>
+    </mat-card>
   </mat-sidenav-content>
   
 </mat-sidenav-container>

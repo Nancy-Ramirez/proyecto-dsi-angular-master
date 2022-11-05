@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HabitacionComponent } from './habitacion.component';
 import { ReservaComponent } from './reserva.component';
 
 describe('ReservaComponent', () => {

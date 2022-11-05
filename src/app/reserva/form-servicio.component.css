@@ -42,3 +42,10 @@ display: stretch;
 align-content: center;
   height: 590px;
 }
+.negrita{
+  font-weight: bold;
+}
+
+.min{
+  font-size: 10px;
+}

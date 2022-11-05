@@ -1,0 +1,79 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+       <mat-toolbar class="colors">
+      <span class="fill-remaining-space"> </span>
+      <span>
+        <a mat-button routerLink="/login"
+          ><span class="material-icons"> logout </span>Login</a
+        >
+      </span>
+       </mat-toolbar>
+       <mat-card-content>
+          <br />
+          <div class="largo">
+             <mat-card class="card">
+             <!--Botón atrás-->
+                 <button
+            type="button"
+            aria-label="Toggle sidenav"
+            mat-icon-button
+            routerLink="/inicio"
+          >
+            <span><span class="material-icons">arrow_back </span></span>
+                 </button>
+
+                 <h1>Datos de habitación {{habitacion.numero_habitacion}}</h1>
+
+                 <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <mat-list>
+                    <div mat-subheader>Información habitación</div>
+                    <mat-list-item >
+                     <mat-icon mat-list-icon>apartment</mat-icon>
+                      <div mat-line>Numero de piso: {{habitacion.numero_piso}}</div>
+                     </mat-list-item>
+
+                     <mat-list-item >
+                     <mat-icon mat-list-icon>bed</mat-icon>
+                      <div mat-line>Tipo de Habitación: {{habitacion.tipo_habitacion}}</div>
+                     </mat-list-item>
+
+                     <mat-list-item >
+                     <mat-icon mat-list-icon>description</mat-icon>
+                      <div mat-line>Descripción: {{habitacion.descripcion_habitacion}}</div>
+                     </mat-list-item>
+
+                     <mat-list-item >
+                     <mat-icon mat-list-icon>attach_money</mat-icon>
+                      <div mat-line>Precio: $ {{habitacion.precio}}</div>
+                     </mat-list-item>
+
+                     <mat-list-item >
+                     <mat-icon mat-list-icon>groups</mat-icon>
+                      <div mat-line>Máximo de personas: {{habitacion.capacidad}}</div>
+                     </mat-list-item>
+
+                     </mat-list>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                     <mat-list>
+                     <div mat-subheader>Caracteristicas</div>
+                          <table class="table table-hover">
+                           <tbody *ngFor="let car of habitacion.caracteristica;let indice=index">
+                             <td>{{caract?.[car-1]?.nombre_caracteristica}}</td>
+                           </tbody>
+                          </table>                   
+                  </mat-list>
+                  </div>
+                  </div>
+
+                <mat-card-footer>
+                 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </mat-card-footer>
+             </mat-card>
+         </div>
+       </mat-card-content>
+   </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,315 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+
+  >
+    <mat-toolbar class="colors">
+   </mat-toolbar >
+    <mat-nav-list>
+      <a mat-list routerLink="#"> </a>
+
+      <a mat-list-item routerLink="/inicio" 
+        ><i class="material-icons">&#xE88A;</i> Inicio</a
+      >
+
+      <a mat-list-item routerLink="/reserva"
+        ><span class="material-icons"> event_seat </span> Reservas</a
+      >
+
+      <a mat-list-item routerLink="/servicios"
+        ><span class="material-icons"> room_service </span>Servicios</a
+      >
+
+      <a mat-list-item routerLink="/habitaciones"
+        ><span class="material-icons"> bed </span>Habitación</a
+      >
+
+      <a mat-list-item routerLink="/empleados">
+        <span class="material-icons"> person </span>Empleado</a
+      >
+
+      <a mat-list-item routerLink="/cargos"
+        ><span class="material-icons"> work_outline </span>Cargo</a
+      >
+
+      <a mat-list-item routerLink="/departamentos"
+        ><span class="material-icons"> assignment </span>Departamento</a
+      >
+
+      <a mat-list-item routerLink="/users"
+        ><span class="material-icons"> account_circle </span>Usuarios</a
+      >
+
+      <a mat-list-item routerLink="/reportes"
+        ><span class="material-icons"> description </span> Reportes</a
+      >
+
+    </mat-nav-list>
+    <mat-toolbar class="colorico"> </mat-toolbar>
+    <mat-toolbar class="colorico"> </mat-toolbar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="colors">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+      >
+
+  <span class="example-spacer"></span>
+      </button>
+      <span class="fill-remaining-space"> </span>
+      <span >   
+  <a mat-button href="/login" 
+><span class="material-icons">
+logout
+</span>Salir</a>
+
+</span>
+
+    </mat-toolbar>
+    <mat-card-content>
+<div class="largo">
+  <form (ngSubmit)="onSubmit()" >
+        <div class="card-body">
+    <mat-card-header>
+       <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        routerLink="/habitaciones"
+      >
+  <span><span class="material-icons">arrow_back </span></span>
+       </button>
+      <h2 class="card-title">
+       Datos de habitación 
+      </h2>
+</mat-card-header>
+      <mat-horizontal-stepper>
+        <mat-step label = "Información Habitación">
+          <div>
+            <div class="form-row">
+              <!--Checkbox habitación-->
+                            <div class="form-group col-md-4">
+                                <mat-checkbox class="example-margin" type="text" name="estado_habitacion" [(ngModel)]="habitacion.estado_habitacion">
+                                    Habitación disponible</mat-checkbox>
+                            </div>
+                        </div>
+            <div class="form-row">
+              <!--Número de habitación-->
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    size="75"
+                    style="width: 300px; height: 98px"
+                  >
+                    <mat-label>N° de habitación</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      type="text"
+                      class="form-control"
+                      name="numero_de_habitacion"
+                      [(ngModel)]="habitacion.numero_habitacion"
+                      required
+                    />
+                      <mat-hint>
+                        <span *ngIf="this.registroForm.get('ciudad')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                    </span>
+                      </mat-hint>
+                  </mat-form-field>
+                </p>
+              </div>
+              <!--Número de piso-->
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    size="75"
+                    style="width: 300px; height: 98px"
+                  >
+                    <mat-label>N° de piso</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      type="text"
+                      class="form-control"
+                      name="numero_de_piso"
+                      [(ngModel)]="habitacion.numero_piso"
+                      required
+                    />
+                  </mat-form-field>
+                </p>
+              </div>
+            </div>
+            <div class="form-row">
+              <!--Tipo de habitación-->
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    size="75"
+                    style="width: 300px; height: 98px"
+                  >
+                    <mat-label>Tipo de habitación</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      type="text"
+                      class="form-control"
+                      name="tipo_habitacion"
+                      [(ngModel)]="habitacion.tipo_habitacion"
+                      required
+                    />
+                  </mat-form-field>
+                </p>
+              </div>
+              <!--Precio de la habitación 24h-->
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    floatLabel="always"
+                    size="75"
+                    style="width: 300px; height: 98px"
+                  >
+                    <mat-label>Precio 24h</mat-label>
+                    <input
+                      matInput
+                      type="number"
+                      class="form-control"
+                      name="precio"
+                      [(ngModel)]="habitacion.precio"
+                      required
+                    />
+                    <span matPrefix>$&nbsp;</span>
+                    <span matSuffix></span>
+                  </mat-form-field>
+                </p>
+              </div>
+            </div>
+            <!--Descripción de la habitación-->
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    style="width: 300px"
+                  >
+                    <mat-label>Descripción de la habitación</mat-label>
+                    <textarea
+                      matInput
+                      placeholder=""
+                      type="text"
+                      class="form-control"
+                      name="descripcion_habitacion"
+                      [(ngModel)]="habitacion.descripcion_habitacion"
+                      required
+                    >
+                    </textarea>
+                  </mat-form-field>
+                </p>
+              </div>
+             <!--Max de personas en habitación-->
+              <div class="form-group col-md-4">
+                <p>
+                  <mat-form-field
+                    appearance="standard"
+                    size="75"
+                    style="width: 300px; height: 98px"
+                  >
+                    <mat-label>Capacidad</mat-label>
+                    <input
+                      matInput
+                      placeholder=""
+                      type="text"
+                      class="form-control"
+                      name="max_personas"
+                      [(ngModel)]="habitacion.capacidad"
+                      required
+                    />
+                  </mat-form-field>
+                </p>
+              </div>
+            </div>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
+        </mat-step>
+        <!--Caracteristicas de la habitación-->
+        <mat-step label="Caracteristicas de la habitación">
+          <p>Ponga un cheque en las caracteristicas que posee la habitación</p>
+            <div>
+                          <!--CARACTERISTICA TODOLIST-->              
+             <div class="form-row">
+               <div class="form-group col-md-5">
+                 <mat-form-field 
+                    appearance="fill"
+                    size="50"
+                    style="width: 400px; height: 50px">
+                    <mat-label>Caracteristicas</mat-label>
+                    <mat-select multiple [formControl]="toppings" [(ngModel)]="habitacion.caracteristica">
+                      <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                       <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                          (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                       </span>
+                     </mat-select-trigger>
+                     <mat-option *ngFor="let d of caract" [value]="d.id">{{d.nombre_caracteristica}}
+                     </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="form-group col-md-5">
+                 <table class="table table-striped">
+                   <thead class="thead-dark">
+                     <tr>
+                       <th scope="col">ID</th>
+                       <th scope="col">Caracteristicas</th>
+                      </tr>
+                   </thead>
+                   <tbody *ngFor="let car of habitacion.caracteristica;let indice=index">
+                        <td>{{car}}</td>
+                        <td>{{caract?.[car-1]?.nombre_caracteristica}}</td>
+                   </tbody>
+                 </table>
+               </div>
+              </div>
+            </div>
+            <button mat-button matStepperPrevious>Atrás</button>
+            <button mat-button matStepperNext>Siguiente</button>
+        </mat-step>
+
+        <mat-step label="Guardar Información"
+          ><p>
+            Si está seguro de que la información ingresada es correcta favor da
+            clic al siguiente botón
+          </p>
+          <div class="form-group col-md-2">
+            <!--botons-->
+            <button
+              class="btn btn-info"
+              (click)="create()"
+              *ngIf="!habitacion.id; else elseBlock"
+             
+            >
+              Registrar
+            </button>
+            <ng-template #elseBlock>
+              <button class="btn btn-info" (click)="update()">Actualizar</button>
+            </ng-template>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Atrás</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </form>
+</div>
+
+    </mat-card-content>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>

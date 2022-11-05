@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { HabitacionService } from './habitacion.service';
 import { Habitacion } from './habitacion';
-import { Reserva } from './reserva';
-import { ReservaService } from './reserva.service';
 import swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-reserva',
-  templateUrl: './reserva.component.html',
-  styleUrls: ['./reserva.component.css']
+  selector: 'app-habitacion',
+  templateUrl: './habitacion.component.html',
+  styleUrls: ['./habitacion.component.css'],
 })
-export class ReservaComponent implements OnInit {
+export class HabitacionComponent implements OnInit {
+ 
+  habitaciones?: Habitacion[];
+  filterHabitacion = '';
 
-  reserva?: Reserva[];
-  filterReserva = '';
-
-  constructor(private reservaService: ReservaService) {}
+  constructor(private habitacionService: HabitacionService) {}
 
   ngOnInit(): void {
-    this.reservaService.getAll().subscribe((e) => (this.reserva = e));
+    this.habitacionService.getAll().subscribe((e) => (this.habitaciones = e));
   }
 
   delete(habitacion: Habitacion): void {
@@ -32,16 +31,16 @@ export class ReservaComponent implements OnInit {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          this.reservaService
+          this.habitacionService
             .delete(habitacion.id)
             .subscribe((res) =>
-              this.reservaService
+              this.habitacionService
                 .getAll()
-                .subscribe((response) => (this.reserva = response))
+                .subscribe((response) => (this.habitaciones = response))
             );
           swal.fire('Eliminado!', 'Habitación Eliminada', 'success');
         }
       });
   }
-
+  
 }

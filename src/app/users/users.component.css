@@ -10,12 +10,10 @@ h1, h5 {
     display: flex;
     flex-wrap: nonrap;
   }
-  mat-card-content{
-  
-  width: 900px;
-  align-content: center;
-  
-  }
+mat-card-content{
+display: stretch;
+align-content: center;
+}
   .btnEditar{
     background-color:gold;
   }

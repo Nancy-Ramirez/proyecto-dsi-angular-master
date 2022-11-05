@@ -1,0 +1,60 @@
+h1 {
+  text-align: center;
+}
+.example-button-container {
+  display: contents;
+  justify-content: center;
+  width: 300px;
+}
+.example-flex-container {
+  display: stretch;
+  flex-wrap: nonrap;
+}
+mat-card-content{
+display: stretch;
+align-content: center;
+
+}
+.btnEditar{
+  background-color:gold;
+}
+sidenav-container {
+    width: 209px;
+  height: 100%;
+}
+
+.sidenav {
+  width: 210px;
+  height: 100%;
+}
+
+.sidenav .mat-toolbar {
+  width: 209px;
+  height: 64.1px;
+}
+
+mat-nav-list, .colorico {
+  background: white;
+}
+.example-spacer, .fill-remaining-space{
+  flex: 1 1 auto;
+}
+
+.colors, .active:focus {
+  background-color: #3f778f   ;
+  text-align: center;
+}
+.example-sidenav {
+  display: stretch;
+  align-items: center;
+  justify-content: center;
+  width: 209px;
+  height: 100%;
+  background: white;
+}
+.largo{
+  justify-content: center;
+display: stretch;
+align-content: center;
+  height: 590px;
+}

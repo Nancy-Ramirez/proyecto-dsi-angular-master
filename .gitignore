@@ -1,2 +1,32 @@
-# Ignora la carpeta node_modules
-node_modules
+# Ignora la carpeta node_module
+node_modules/
+npm-debug.log
+
+.DS_Store
+
+libpeerconnection.log
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+coverage/Chrome*/*
+coverage/Phantom*/*
+coverage/Firefox*/*
+coverage/
+
+bower_components/
+
+build_examples/**/bundle.js
+*.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/0.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/0.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/1.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack.old
+.angular/cache/13.2.6/babel-webpack/3c2e59ea9cb137cf892ab5bad885dcb8.json
+.angular/cache/13.2.6/babel-webpack/7e0771e51075e7a4e1eeea8fe93d5330.json
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack.old
+.angular/cache/13.2.6/babel-webpack/7fb37833f93b63e4f77b5c512abcfcce.json
+.angular/cache/13.2.6/babel-webpack/b1492fe137a153017304d235db6488aa.json

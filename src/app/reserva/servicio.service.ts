@@ -12,28 +12,28 @@ export class ServicioService {
 
   // obtiene una lista de Servicios de la base
   getAll(): Observable<Servicio[]> {
-    return this.http.get<Servicio[]>(this.url + '/servicio/');
+    return this.http.get<Servicio[]>(this.url );
   }
 
   // metodo que permite crear nuevo Servicio
   create(Servicio: Servicio): Observable<Servicio> {
-    return this.http.post<Servicio>(this.url + '/servicio/', Servicio);
+    return this.http.post<Servicio>(this.url , Servicio);
   }
 
   // metodo que obtiene un solo Servicio
   get(id: number): Observable<Servicio> {
-    return this.http.get<Servicio>(this.url + '/servicio/' + id);
+    return this.http.get<Servicio>(this.url + id);
   }
 
   // metodo para actualizar Servicio
   update(Servicio: Servicio): Observable<Servicio> {
     return this.http.put<Servicio>(
-      this.url + '/servicio/' + Servicio.id + '/',
+      this.url  + Servicio.id + '/',
      Servicio
     );
   }
   // metodo para eliminar Servicio
   delete(id?: number): Observable<Servicio> {
-    return this.http.delete<Servicio>(this.url + '/servicio/' + id);
+    return this.http.delete<Servicio>(this.url + id);
   }
 }

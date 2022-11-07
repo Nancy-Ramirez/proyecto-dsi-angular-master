@@ -188,7 +188,8 @@
                                          [routerLink]="['/reserva/form']"
                                          routerLinkActive="router-link-active" 
                                          style="margin-right:10px"
-                                         (click)="btnEnviarHijo(item.id)">
+                                        disabled="{{ !item.estado_habitacion }}"
+                                         >
                                    <mat-icon class="blanco">event_available</mat-icon>
                                  </button>
                               </div>

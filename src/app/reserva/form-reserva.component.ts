@@ -1,5 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import swal from 'sweetalert2';
 import { Habitacion } from './habitacion';
@@ -15,6 +15,7 @@ import { InicioComponent } from '../inicio/inicio.component';
   templateUrl: './form-reserva.component.html',
   styleUrls: ['./form-reserva.component.css'],
 })
+
 export class FormReservaComponent implements OnInit {
   inic!: InicioComponent;
   registroForm!: FormGroup;
@@ -29,23 +30,36 @@ export class FormReservaComponent implements OnInit {
   habitac?: Habitacion[];
   fechaInicio!: Date;
   fechaFin!: Date;
+  resultado!: string;
   
-
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
     private reservaService: ReservaService,
     private _formBuilder: FormBuilder,
-    private renderer2:Renderer2
-  ) {}
+    private renderer2:Renderer2,
+        ) { }
 
 
   ngOnInit(): void {
     this.cargar();
     this.obtenerServ();
     this.obtenerHab();
-  }
 
+    this.registroForm = this._formBuilder.group({
+      fecha_ingreso:['', [Validators.required]],
+      fecha_salida:['', [Validators.required]],       
+      hora_ingreso:['', [Validators.required]],
+      numero_personas: ['', [Validators.required, Validators.maxLength(2), Validators.minLength(1)]],
+      nombre_completo: ['', [Validators.required, Validators.maxLength(200), Validators.minLength(3)]],
+      numero_contacto: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
+      documento_identidad: ['',[Validators.required, Validators.maxLength(9), Validators.minLength(9) ],],
+      direccion: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      id_habitacion: ['', [Validators.required]],
+    });
+  }
+  
   recuperarPadre():void{
     this.inic.btnEnviarHijo();
   }
@@ -91,6 +105,14 @@ export class FormReservaComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
   }
+
+  submit() {
+    if (this.registroForm.valid)
+      this.resultado = "Todos los datos son válidos";
+    else
+      this.resultado = "Hay datos inválidos en el formulario";
+   }
+
   cargar(): void {
     this.activateRoute.params.subscribe((e) => {
       let id = e['id'];
@@ -102,22 +124,31 @@ export class FormReservaComponent implements OnInit {
     });
   }
   
-  create(): void
-   {
-     swal
-  .fire({
-  position: 'center',
-  icon: 'success',
-  title: 'Registrado con éxito',
-  showConfirmButton: false,
-  timer: 1500
-
-    })
-    this.reservaService
-      .create(this.reserva)
-      .subscribe((res) => (this.router.navigate(['/reserva']), console.log(res))
-      );
-  }
+ create(): void {
+    console.log(this.reserva);
+    this.reservaService.create(this.reserva).subscribe({
+      next: (res) => {
+        swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Registrado con éxito',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        this.router.navigate(['/reserva']);
+        console.log(res);
+      },
+      error: (err) => {
+        swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Lo sentimos, no se pudo registrar',
+          timer: 1500,
+        });
+        console.log(err);
+      },
+    });
+  } 
 
   update(): void {
     swal.

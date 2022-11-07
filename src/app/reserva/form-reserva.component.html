@@ -16,6 +16,7 @@
     <mat-card-content>
       <br />
       <div class="largo">
+        <form>
         <mat-card class="card">
           <!--Botón atrás-->
           <button
@@ -36,57 +37,67 @@
                 <div class="form-group col-md-4">
                   <mat-card>
                     <div class="form-row">
-                  
                   <mat-form-field
                       appearance="standard"
                       size="50"
                       style="width: 250px; height: 70px"
                     >
-                     <h4>Cant. Personas</h4> 
+                     <h4>Habitación</h4> 
                       <input
                         matInput
                         placeholder=""
                         type="number"
                         class="form-control"
                         name="numero_personas"
-                        [(ngModel)]="reserva.numero_personas"
+                        [(ngModel)]="reserva.id_habitacion"
                         required
                       />
                     </mat-form-field>
                     </div> <br><br><br>
                     <div class="form-row">
-                      <h4>Fechas a reservar esta habitación</h4>
-                      <section class="container-disponibilidad">
-                        <article class="datap">
-                          <mat-form-field appearance="fill"
-                            size="50"
-                            style="width: 275px; height: 80px">
-                             <mat-label></mat-label>
-                             <mat-date-range-input [rangePicker]="picker">
-                               <input
-                                 matStartDate
-                                 placeholder="Start date"
-                                 [(ngModel)]="reserva.fecha_ingreso"
-                                required/>
-                               <input
-                                matEndDate
-                                placeholder="End date"
-                                [(ngModel)]="reserva.fecha_salida"
-                                required/>
-                             </mat-date-range-input>
-                             <mat-hint></mat-hint>
-                             <mat-datepicker-toggle
-                               matSuffix
-                               [for]="picker"
-                             ></mat-datepicker-toggle>
-                             <mat-date-range-picker #picker></mat-date-range-picker>
-                           </mat-form-field>
-                        </article>
-                      </section>
+                      <h4>Fecha de ingreso</h4>
+                      <mat-form-field
+                      appearance="standard"
+                      size="50"
+                      style="width: 250px; height: 70px"
+                      >
+                      <input
+                         matInput
+                         placeholder=""
+                         type="date"
+                         class="form-control"
+                         formControlName="fecha_ingreso"
+                         [(ngModel)]="reserva.fecha_ingreso"
+                         required/>
+                        <mat-hint>
+                            
+                         </mat-hint>
+                     </mat-form-field>
+                   </div> 
+
+                   <div class="form-row">
+                      <h4>Fecha de salida</h4>
+                      <mat-form-field
+                      appearance="standard"
+                      size="50"
+                      style="width: 250px; height: 70px"
+                      >
+                      <input
+                         matInput
+                         placeholder=""
+                         type="date"
+                         class="form-control"
+                         formControlName="fecha_salida"
+                         [(ngModel)]="reserva.fecha_salida"
+                         required/>
+                        <mat-hint>
+                            
+                         </mat-hint>
+                     </mat-form-field>
                    </div> 
     
                   <div class="form-row">
-                    <br>
+                    <br><br>
                     <h4>Añade tu hora de llegada aproximada</h4>
                     <mat-form-field 
                       appearance="standard"
@@ -100,19 +111,19 @@
                         name="hora_ingreso"
                         [(ngModel)]="reserva.hora_ingreso"
                         required>
-                        <mat-option value="one">No lo sé</mat-option>
-                        <mat-option value="two">14:30 - 15:00</mat-option>
-                        <mat-option value="two">15:00 - 16:00</mat-option>
-                        <mat-option value="two">16:00 - 17:00</mat-option>
-                        <mat-option value="two">17:00 - 18:00</mat-option>
-                        <mat-option value="two">18:00 - 19:00</mat-option>
-                        <mat-option value="two">19:00 - 20:00</mat-option>
-                        <mat-option value="two">20:00 - 21:00</mat-option>
-                        <mat-option value="two">21:00 - 22:00</mat-option>
-                        <mat-option value="two">22:00 - 23:00</mat-option>
-                        <mat-option value="two">23:00 - 00:00</mat-option>
-                        <mat-option value="two">00:00 - 01:00 (día siguiente) </mat-option>
-                        <mat-option value="two">01:00 - 02:00 (día siguiente) </mat-option>
+                        <mat-option value="NoSabe">No lo sé</mat-option>
+                        <mat-option value="2:30pm">14:30 - 15:00</mat-option>
+                        <mat-option value="3:00pm">15:00 - 16:00</mat-option>
+                        <mat-option value="4:00pm">16:00 - 17:00</mat-option>
+                        <mat-option value="5:00pm">17:00 - 18:00</mat-option>
+                        <mat-option value="6:00pm">18:00 - 19:00</mat-option>
+                        <mat-option value="7:00pm">19:00 - 20:00</mat-option>
+                        <mat-option value="8:00pm">20:00 - 21:00</mat-option>
+                        <mat-option value="9:00pm">21:00 - 22:00</mat-option>
+                        <mat-option value="10:00pm">22:00 - 23:00</mat-option>
+                        <mat-option value="11:00pm">23:00 - 00:00</mat-option>
+                        <mat-option value="12:00amSD">00:00 - 01:00 (día siguiente) </mat-option>
+                        <mat-option value="1:00amSD">01:00 - 02:00 (día siguiente) </mat-option>
                       </mat-select>
                     </mat-form-field>
                   </div>
@@ -493,6 +504,7 @@
             
           </mat-horizontal-stepper>
         </mat-card>
+        </form>
       </div>
     </mat-card-content>
   </mat-sidenav-content>

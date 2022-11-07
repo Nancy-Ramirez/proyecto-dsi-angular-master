@@ -49,9 +49,8 @@ import { BusReservaPipe } from './pipes/bus-reserva.pipe';
 import { VerHabitacionComponent } from './reserva/ver-habitacion.component';
 import { MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import { ReportesComponent } from './reportes/reportes.component';
-
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { ReportesComponent } from './reportes/reportes.component'
 
 @NgModule({
   declarations: [
@@ -82,7 +81,7 @@ import { ReportesComponent } from './reportes/reportes.component';
     FormReservaComponent,
     VerHabitacionComponent,
     ReportesComponent,
-    
+   
   ],
   imports: [
     BrowserModule,

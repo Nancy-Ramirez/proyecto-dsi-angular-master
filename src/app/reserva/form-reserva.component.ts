@@ -8,7 +8,7 @@ import { ReservaService } from './reserva.service';
 import { HabitacionService } from './habitacion.service';
 import { Servicio } from './servicio';
 import { InicioComponent } from '../inicio/inicio.component';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 @Component({
   selector: 'app-form-reserva',
@@ -17,8 +17,8 @@ import { InicioComponent } from '../inicio/inicio.component';
 })
 
 export class FormReservaComponent implements OnInit {
-  inic!: InicioComponent;
-  registroForm!: FormGroup;
+  formReserva!: FormGroup;
+  formDatosCliente!: FormGroup;
   reserva: Reserva = new Reserva();
   submitted = false;
   list: any[] = [];
@@ -36,7 +36,7 @@ export class FormReservaComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private router: Router,
     private reservaService: ReservaService,
-    private _formBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private renderer2:Renderer2,
         ) { }
 
@@ -46,22 +46,34 @@ export class FormReservaComponent implements OnInit {
     this.obtenerServ();
     this.obtenerHab();
 
-    this.registroForm = this._formBuilder.group({
+    this.formReserva = this.formBuilder.group({
       fecha_ingreso:['', [Validators.required]],
       fecha_salida:['', [Validators.required]],       
       hora_ingreso:['', [Validators.required]],
-      numero_personas: ['', [Validators.required, Validators.maxLength(2), Validators.minLength(1)]],
+      numero_personas: ['', [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
+      id_habitacion: ['', [Validators.required]],
+    });
+
+    this.formDatosCliente = this.formBuilder.group({
       nombre_completo: ['', [Validators.required, Validators.maxLength(200), Validators.minLength(3)]],
       numero_contacto: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
-      documento_identidad: ['',[Validators.required, Validators.maxLength(9), Validators.minLength(9) ],],
+      documento_identidad: ['',[Validators.required, Validators.maxLength(9), Validators.minLength(9) ]],
       direccion: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      id_habitacion: ['', [Validators.required]],
     });
   }
   
-  recuperarPadre():void{
-    this.inic.btnEnviarHijo();
+  get form() {
+    return this.formReserva.controls;
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+  }
+  onReset() {
+    this.submitted = false;
+    this.formReserva.reset();
+    this.formDatosCliente.reset();
   }
 
   obtenerHab():void{
@@ -93,6 +105,7 @@ export class FormReservaComponent implements OnInit {
     console.log(this.total)
   }
 
+
   changeServicio(value: string){
     this.list?.push({id: this.list.length, name:value})
     console.log(this.list);
@@ -102,12 +115,8 @@ export class FormReservaComponent implements OnInit {
     console.log('the selected value is ' + value);
   }
 
-  onSubmit(): void {
-    this.submitted = true;
-  }
-
   submit() {
-    if (this.registroForm.valid)
+    if (this.formReserva.valid || this.formDatosCliente )
       this.resultado = "Todos los datos son válidos";
     else
       this.resultado = "Hay datos inválidos en el formulario";
@@ -172,3 +181,6 @@ export class FormReservaComponent implements OnInit {
 });
 }
 }
+  const maskConfig: Partial<IConfig> = {
+  validation: false,
+};

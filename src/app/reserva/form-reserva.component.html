@@ -16,7 +16,7 @@
     <mat-card-content>
       <br />
       <div class="largo">
-        <form>
+       
         <mat-card class="card">
           <!--Botón atrás-->
           <button
@@ -36,267 +36,304 @@
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <mat-card>
-                    <div class="form-row">
-                  <mat-form-field
-                      appearance="standard"
-                      size="50"
-                      style="width: 250px; height: 70px"
-                    >
-                     <h4>Habitación</h4> 
-                      <input
-                        matInput
-                        placeholder=""
-                        type="number"
-                        class="form-control"
-                        name="numero_personas"
-                        [(ngModel)]="reserva.id_habitacion"
-                        required
-                      />
-                    </mat-form-field>
-                    </div> <br><br><br>
-                    <div class="form-row">
-                      <h4>Fecha de ingreso</h4>
-                      <mat-form-field
-                      appearance="standard"
-                      size="50"
-                      style="width: 250px; height: 70px"
-                      >
-                      <input
-                         matInput
-                         placeholder=""
-                         type="date"
-                         class="form-control"
-                         formControlName="fecha_ingreso"
-                         [(ngModel)]="reserva.fecha_ingreso"
-                         required/>
-                        <mat-hint>
-                            
-                         </mat-hint>
-                     </mat-form-field>
-                   </div> 
+                    <form (ngSubmit)="submit()" [formGroup]="formReserva">
+                    <!--Habitación-->
+                      <div class="form-row">
+                        <mat-form-field
+                          appearance="standard"
+                          size="50"
+                          style="width: 250px; height: 70px"
+                        >
+                          <mat-label>Habitación</mat-label>
+                          <input
+                            matInput
+                            placeholder=""
+                            type="number"
+                            class="form-control"
+                            formControlName="id_habitacion"
+                            [(ngModel)]="reserva.id_habitacion"
+                            required
+                          />
+                          <mat-hint>
+                            <span *ngIf="this.formReserva.get('id_habitacion')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                             </span>
+                            <span *ngIf="this.formReserva.get('id_habitacion')?.hasError?.('minlength')">
+                                (Debe tener como mínimo 3 caracteres)
+                             </span>
+                          </mat-hint>
+                       </mat-form-field>
+                      </div>
+                      <br>
 
-                   <div class="form-row">
-                      <h4>Fecha de salida</h4>
-                      <mat-form-field
-                      appearance="standard"
-                      size="50"
-                      style="width: 250px; height: 70px"
-                      >
-                      <input
-                         matInput
-                         placeholder=""
-                         type="date"
-                         class="form-control"
-                         formControlName="fecha_salida"
-                         [(ngModel)]="reserva.fecha_salida"
-                         required/>
-                        <mat-hint>
-                            
+                      <!--Fecha de ingreso-->
+                      <div class="form-row">
+                        <mat-form-field
+                         appearance="standard"
+                         size="50"
+                         style="width: 250px; height: 70px"
+                        >
+                         <mat-label>Fecha de ingreso</mat-label>
+                         <input
+                           matInput
+                           placeholder=""
+                           type="date"
+                           class="form-control"
+                           formControlName="fecha_ingreso"
+                           [(ngModel)]="reserva.fecha_ingreso"
+                           required/>
+                         <mat-hint>
+                            <span *ngIf="this.formReserva.get('fecha_ingreso')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                             </span>
                          </mat-hint>
-                     </mat-form-field>
-                   </div> 
-    
-                  <div class="form-row">
-                    <br><br>
-                    <h4>Añade tu hora de llegada aproximada</h4>
-                    <mat-form-field 
-                      appearance="standard"
-                      size="50"
-                      style="width: 275px; height: 70px">
-                      <mat-select
-                      matInput
-                        placeholder=""
-                        type="text"
-                        class="form-control"
-                        name="hora_ingreso"
-                        [(ngModel)]="reserva.hora_ingreso"
-                        required>
-                        <mat-option value="NoSabe">No lo sé</mat-option>
-                        <mat-option value="2:30pm">14:30 - 15:00</mat-option>
-                        <mat-option value="3:00pm">15:00 - 16:00</mat-option>
-                        <mat-option value="4:00pm">16:00 - 17:00</mat-option>
-                        <mat-option value="5:00pm">17:00 - 18:00</mat-option>
-                        <mat-option value="6:00pm">18:00 - 19:00</mat-option>
-                        <mat-option value="7:00pm">19:00 - 20:00</mat-option>
-                        <mat-option value="8:00pm">20:00 - 21:00</mat-option>
-                        <mat-option value="9:00pm">21:00 - 22:00</mat-option>
-                        <mat-option value="10:00pm">22:00 - 23:00</mat-option>
-                        <mat-option value="11:00pm">23:00 - 00:00</mat-option>
-                        <mat-option value="12:00amSD">00:00 - 01:00 (día siguiente) </mat-option>
-                        <mat-option value="1:00amSD">01:00 - 02:00 (día siguiente) </mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                  </div>
+                       </mat-form-field>
+                     </div>
+                     <br>
 
-                  <div class="form-row">
-                  
-                  <mat-form-field
-                      appearance="standard"
-                      size="50"
-                      style="width: 250px; height: 70px"
-                    >
-                     <h4>Cant. Personas</h4> 
-                      <input
-                        matInput
-                        placeholder=""
-                        type="number"
-                        class="form-control"
-                        name="numero_personas"
-                        [(ngModel)]="reserva.numero_personas"
-                        required
-                      />
+                     <!--Fecha de salida-->
+                     <div class="form-row">
+                        <mat-form-field
+                         appearance="standard"
+                         size="50"
+                         style="width: 250px; height: 70px"
+                        >
+                         <mat-label>Fecha de salida</mat-label>
+                         <input
+                           matInput
+                           placeholder=""
+                           type="date"
+                           class="form-control"
+                           formControlName="fecha_salida"
+                           [(ngModel)]="reserva.fecha_salida"
+                           required/>
+                         <mat-hint>
+                           <span *ngIf="this.formReserva.get('fecha_salida')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                             </span> 
+                         </mat-hint>
+                       </mat-form-field>
+                     </div>
+                     <br>
+                     <!--Hora aprox de llegada-->
+                     <div class="form-row">
+                       <mat-form-field 
+                         appearance="standard"
+                         size="50"
+                         style="width: 275px; height: 70px">
+                         <mat-label>Hora aproximada de llegada</mat-label>
+                         <mat-select
+                           matInput
+                           placeholder=""
+                           type="text"
+                           formControlName="form-control"
+                           name="hora_ingreso"
+                           [(ngModel)]="reserva.hora_ingreso"
+                           required>
+                           <mat-option value="NoSabe">No lo sé</mat-option>
+                           <mat-option value="2:30pm">14:30 - 15:00</mat-option>
+                           <mat-option value="3:00pm">15:00 - 16:00</mat-option>
+                           <mat-option value="4:00pm">16:00 - 17:00</mat-option>
+                           <mat-option value="5:00pm">17:00 - 18:00</mat-option>
+                           <mat-option value="6:00pm">18:00 - 19:00</mat-option>
+                           <mat-option value="7:00pm">19:00 - 20:00</mat-option>
+                           <mat-option value="8:00pm">20:00 - 21:00</mat-option>
+                           <mat-option value="9:00pm">21:00 - 22:00</mat-option>
+                           <mat-option value="10:00pm">22:00 - 23:00</mat-option>
+                           <mat-option value="11:00pm">23:00 - 00:00</mat-option>
+                           <mat-option value="12:00amSD">00:00 - 01:00 (día siguiente) </mat-option>
+                           <mat-option value="1:00amSD">01:00 - 02:00 (día siguiente) </mat-option>
+                         </mat-select>
+                         <mat-hint>
+                            <span *ngIf="this.formReserva.get('hora_ingreso')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                             </span>
+                         </mat-hint>
+                       </mat-form-field>
+                     </div>
+                     <br>
+                     
+                     <!--Cantidad de personas-->
+                      <div class="form-row">
+                       <mat-form-field
+                         appearance="standard"
+                         size="50"
+                         style="width: 250px; height: 70px"
+                         >
+                         <mat-label>Cantidad de personas</mat-label>
+                         <input
+                           matInput
+                           placeholder=""
+                           type="number"
+                           class="form-control"
+                           formControlName="numero_personas"
+                           [(ngModel)]="reserva.numero_personas"
+                           mask= "0"
+                           required
+                         />
+                         <mat-hint>
+                            <span *ngIf="this.formReserva.get('numero_personas')?.hasError?.('required')">
+                               (El campo no puede quedar vacío)
+                             </span>
+                            <span *ngIf="this.formReserva.get('numero_personas')?.hasError?.('minlength')">
+                                (Debe tener al menos 1)
+                             </span>
+                              <span *ngIf="this.formReserva.get('numero_personas')?.hasError?.('maxlength')">
+                                (Debe tener maximo 9)
+                             </span>
+                         </mat-hint>
                     </mat-form-field>
                     </div>
-                    <br><br><br>
-                   </mat-card>
+                    <br>
+                  </form> 
+                  </mat-card>
                 </div>
               
-              <div class="form-group col-md-8">
+               <div class="form-group col-md-8">
                 <mat-card>
                   <h2>Especificaciones generales</h2>
-              <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <mat-list>
-                      <mat-list-item 
-                         size="50"
-                         style="width: 275px; height: 40px">
-                       <mat-icon mat-list-icon>today</mat-icon>
-                       <div mat-line>
-                        <b>Entrada</b>
-                        </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-                  <div class="form-group col-md-5">
-                    <mat-list>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 275px; height: 40px" >
-                        <mat-icon mat-list-icon></mat-icon>
-                       <div mat-line>A partir de las 14:30 </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-              </div> 
+                   <div class="form-row">
+                     <div class="form-group col-md-3">
+                       <mat-list>
+                         <mat-list-item 
+                           size="50"
+                           style="width: 275px; height: 40px">
+                           <mat-icon mat-list-icon>today</mat-icon>
+                           <div mat-line>
+                             <b>Entrada</b>
+                           </div>
+                         </mat-list-item>
+                       </mat-list>
+                     </div>
+                     <div class="form-group col-md-5">
+                       <mat-list>
+                         <mat-list-item 
+                           size="50"
+                           style="width: 275px; height: 40px" >
+                           <mat-icon mat-list-icon></mat-icon>
+                           <div mat-line>A partir de las 14:30 </div>
+                         </mat-list-item>
+                       </mat-list>
+                     </div>
+                    </div> 
 
-              <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <mat-list>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 400px; height: 40px" >
-                       <mat-icon mat-list-icon>event</mat-icon>
-                       <div mat-line>
-                        <b>Salida </b>
+                    <div class="form-row">
+                      <div class="form-group col-md-3">
+                       <mat-list>
+                         <mat-list-item 
+                           size="50"
+                           style="width: 400px; height: 40px" >
+                           <mat-icon mat-list-icon>event</mat-icon>
+                           <div mat-line>
+                             <b>Salida </b>
+                           </div>
+                         </mat-list-item>
+                       </mat-list>
+                     </div>
+                     <div class="form-group col-md-4">
+                       <mat-list>
+                         <mat-list-item 
+                           size="50"
+                           style="width: 400px; height: 40px" >
+                           <mat-icon mat-list-icon></mat-icon>
+                           <div mat-line>Hasta la 13:00 </div>
+                         </mat-list-item>
+                       </mat-list>
+                     </div>
+                    </div> 
+
+                    <div class="form-row">
+                      <div class="form-group col-md-3">
+                         <mat-list>
+                           <mat-list-item 
+                             size="40"
+                             style="width: 400px; height: 40px" >
+                             <mat-icon mat-list-icon>family_restroom</mat-icon>
+                             <div mat-line>
+                               <b>Camas para niños</b>
+                             </div>
+                           </mat-list-item>
+                         </mat-list>
                        </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-                  <div class="form-group col-md-4">
-                    <mat-list>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 400px; height: 40px" >
-                        <mat-icon mat-list-icon></mat-icon>
-                       <div mat-line>Hasta la 13:00 </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-              </div> 
+                       <div class="form-group col-md-8">
+                         <mat-list>
+                           <mat-list-item 
+                             size="50"
+                             style="width: 400px; height: 40px" >
+                             <mat-icon mat-list-icon></mat-icon>
+                             <div mat-line>
+                               **Condiciones para estancias con niños**
+                             </div>
+                           </mat-list-item>
+                           <mat-list-item 
+                             size="50"
+                             style="width: 400px; height: 40px" >
+                             <mat-icon mat-list-icon>star_border</mat-icon>
+                             <div mat-line>Se pueden alojar niños de cualquier edad.</div>
+                           </mat-list-item>
+                           <mat-list-item 
+                             size="50"
+                             style="width: 400px; height: 40px" >
+                             <mat-icon mat-list-icon>star_border</mat-icon>
+                             <div mat-line>Menores de 2 años tienen estadía gratis.</div>
+                            </mat-list-item>
+                         </mat-list>
+                       </div>
 
-              <div class="form-row">
-                  <div class="form-group col-md-3">
-                    <mat-list>
-                       <mat-list-item 
-                         size="40"
-                         style="width: 400px; height: 40px" >
-                       <mat-icon mat-list-icon>family_restroom</mat-icon>
-                       <div mat-line>
-                        <b>Camas para niños</b>
-                        </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-                  <div class="form-group col-md-8">
-                    <mat-list>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 400px; height: 40px" >
-                        <mat-icon mat-list-icon></mat-icon>
-                       <div mat-line>
-                          **Condiciones para estancias con niños**
-                        </div>
-                      </mat-list-item>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 400px; height: 40px" >
-                        <mat-icon mat-list-icon>star_border</mat-icon>
-                        <div mat-line>Se pueden alojar niños de cualquier edad.</div>
-                      </mat-list-item>
-                     
-                       <mat-list-item 
-                         size="50"
-                         style="width: 400px; height: 40px" >
-                        <mat-icon mat-list-icon>star_border</mat-icon>
-                        <div mat-line>Menores de 2 años tienen estadía gratis.</div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-                <div class="form-group col-md-4">
-                    <mat-list>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 400px; height: 40px" >
-                        <mat-icon mat-list-icon>paid</mat-icon>
-                       <div mat-line>
-                        <b>Condiciones de pago </b>
-                        </div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-                <div class="form-group col-md-5">
-                    <mat-list>
-                       <mat-list-item 
-                         size="50"
-                         style="width: 275px; height: 40px" >
-                        <mat-icon mat-list-icon></mat-icon>
-                       <div mat-line>Pagarás en el alojamiento</div>
-                      </mat-list-item>
-                    </mat-list>
-                  </div>
-                  </div>
-              </mat-card>  
-              </div>
-                </div>
-                <div class="form-row">
-                
+                       <div class="form-group col-md-4">
+                         <mat-list>
+                           <mat-list-item 
+                             size="50"
+                             style="width: 400px; height: 40px" >
+                             <mat-icon mat-list-icon>paid</mat-icon>
+                             <div mat-line>
+                               <b>Condiciones de pago </b>
+                             </div>
+                           </mat-list-item>
+                         </mat-list>
+                       </div>
+                       <div class="form-group col-md-5">
+                         <mat-list>
+                           <mat-list-item 
+                             size="50"
+                             style="width: 275px; height: 40px" >
+                             <mat-icon mat-list-icon></mat-icon>
+                             <div mat-line>Pagarás en el alojamiento</div>
+                           </mat-list-item>
+                         </mat-list>
+                       </div>
+                     </div>
+                   </mat-card>  
+                 </div>
+               </div>
+               <div class="form-row">
                 <button mat-button matStepperNext>Siguiente</button>
-              </div>
+               </div>
             </mat-step>
 
             <!--Paso 2-->
-            <mat-step label="Información Cliente">
-              <div class="form-row">
-                <!--Nombre completo-->
-                <div class="form-group col-md-12">
-                  <p>
-                    <mat-form-field
-                      appearance="standard"
-                      size="75"
-                      style="width: 760px; height: 98px"
-                    >
-                      <mat-label> Nombre Completo </mat-label>
-                      <input
-                        matInput
-                        placeholder=""
-                        type="text"
-                        class="form-control"
-                        name="nombre_completo"
-                        [(ngModel)]="reserva.nombre_completo"
-                        required
-                      />
-                    </mat-form-field>
-                  </p>
+                <mat-step label="Información Cliente">
+                 <div class="form-row">
+                   <!--Nombre completo-->
+                   <div class="form-group col-md-12">
+                      <p>
+                        <mat-form-field
+                           appearance="standard"
+                           size="75"
+                           style="width: 760px; height: 98px"
+                          >
+                           <mat-label> Nombre Completo </mat-label>
+                           <input
+                             matInput
+                             placeholder=""
+                             type="text"
+                             class="form-control"
+                             name="nombre_completo"
+                             [(ngModel)]="reserva.nombre_completo"
+                             required
+                           />
+                         </mat-form-field>
+                         </p>
                 </div>
               </div>
               <div class="form-row">
@@ -399,6 +436,7 @@
                 habitación
               </h5>
               <br /><br />
+              
               <div class="form-row">
                 <div class="form-group col-md-7">
                   <mat-form-field
@@ -504,7 +542,7 @@
             
           </mat-horizontal-stepper>
         </mat-card>
-        </form>
+
       </div>
     </mat-card-content>
   </mat-sidenav-content>

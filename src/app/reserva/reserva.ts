@@ -2,7 +2,7 @@ export class Reserva{
 id? : number;
 fecha_ingreso?: Date;
 fecha_salida?: Date;
-hora_ingreso?: number;
+hora_ingreso?: string;
 hora_salida?: number;
 numero_personas?: number;
 nombre_completo?: string;

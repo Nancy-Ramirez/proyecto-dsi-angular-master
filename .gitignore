@@ -30,3 +30,12 @@ build_examples/**/bundle.js
 .angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack.old
 .angular/cache/13.2.6/babel-webpack/7fb37833f93b63e4f77b5c512abcfcce.json
 .angular/cache/13.2.6/babel-webpack/b1492fe137a153017304d235db6488aa.json
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/0.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/0.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack
+.angular/cache/13.2.6/babel-webpack/156d704309072adc1be6ba06c30d3dcd.json
+*.json
+*.pack
+*.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/index.pack
+.angular/cache/13.2.6/angular-webpack/a423d948d9e5b79e88aa21cba6e0451d40c808e8/0.pack

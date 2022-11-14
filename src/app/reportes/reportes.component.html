@@ -59,31 +59,47 @@
     <mat-card-content>
       <div class="largo">
         <h1>REPORTES</h1>
-
-        <div>
-          <button
-            class="btn col col-lg-4 btn-danger btn-block ml-4"
-            (click)="createPdfEmpleado()"
-          >
-            Download PDF EMPLEADO
-          </button>
+    
+       <div class="form-row">
+         <div class="form-group col-md-4">
+           <div class="centrar">
+               <h3>Reportes de los empleados registrados</h3>
+               <button
+                 class="button"
+                 style="background-color:cornflowerblue"
+                 (click)="createPdfEmpleado()"
+                >
+                 Empleados
+               </button>
+            </div>
+          </div>
+           <div class="form-group col-md-4">
+             <div class="centrar">
+               <h3>Reportes de las habitaciones registradas</h3>
+                 <button
+                   class="button"
+                   style="background-color:cornflowerblue"
+                   (click)="createPdfHabitaciones()"
+                  >
+                   Habitaciones
+                 </button>
+             </div>
+            </div>
+            <div class="form-group col-md-4">
+              
+                 <h3>Reportes de las reservas registradas</h3>
+                 <div class="centrar">
+                  <button
+                    class="button"
+                    style="background-color:cornflowerblue"
+                    (click)="createPdfReservas()"
+                  >
+                    Reservas
+                  </button>
+              </div>
+            </div>
         </div>
-        <div>
-          <button
-            class="btn col col-lg-4 btn-danger btn-block ml-4"
-            (click)="createPdfHabitaciones()"
-          >
-            Download PDF HABITACIONES
-          </button>
-        </div>
-        <div>
-          <button
-            class="btn col col-lg-4 btn-danger btn-block ml-4"
-            (click)="createPdfReservas()"
-          >
-            Download PDF RESERVAS
-          </button>
-        </div>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
       </div>
     </mat-card-content>
   </mat-sidenav-content>

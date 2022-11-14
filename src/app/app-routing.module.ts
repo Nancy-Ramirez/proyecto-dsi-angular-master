@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'reserva/form', component: FormReservaComponent},
   { path: 'reserva/form/:id', component: FormReservaComponent,canActivate: [AuthGuard] },
   { path: 'verhabitacion/form/:id', component: VerHabitacionComponent},
-  { path: 'reportes', component: ReportesComponent}
+  { path: 'reportes', component: ReportesComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

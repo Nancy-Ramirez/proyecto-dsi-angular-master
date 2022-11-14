@@ -16,7 +16,7 @@
     <mat-card-content>
       <br />
       <div class="largo">
-       
+       <form (ngSubmit)="submit()" [formGroup]="formReserva">
         <mat-card class="card">
           <!--Botón atrás-->
           <button
@@ -126,23 +126,23 @@
                            matInput
                            placeholder=""
                            type="text"
-                           formControlName="form-control"
-                           name="hora_ingreso"
+                           class="form-control"
+                           formControlName="hora_ingreso"
                            [(ngModel)]="reserva.hora_ingreso"
                            required>
-                           <mat-option value="NoSabe">No lo sé</mat-option>
-                           <mat-option value="2:30pm">14:30 - 15:00</mat-option>
-                           <mat-option value="3:00pm">15:00 - 16:00</mat-option>
-                           <mat-option value="4:00pm">16:00 - 17:00</mat-option>
-                           <mat-option value="5:00pm">17:00 - 18:00</mat-option>
-                           <mat-option value="6:00pm">18:00 - 19:00</mat-option>
-                           <mat-option value="7:00pm">19:00 - 20:00</mat-option>
-                           <mat-option value="8:00pm">20:00 - 21:00</mat-option>
-                           <mat-option value="9:00pm">21:00 - 22:00</mat-option>
-                           <mat-option value="10:00pm">22:00 - 23:00</mat-option>
-                           <mat-option value="11:00pm">23:00 - 00:00</mat-option>
-                           <mat-option value="12:00amSD">00:00 - 01:00 (día siguiente) </mat-option>
-                           <mat-option value="1:00amSD">01:00 - 02:00 (día siguiente) </mat-option>
+                           <mat-option value=0>No lo sé</mat-option>
+                           <mat-option value=14.30>14:30 - 15:00</mat-option>
+                           <mat-option value=15.00>15:00 - 16:00</mat-option>
+                           <mat-option value=16.00>16:00 - 17:00</mat-option>
+                           <mat-option value=17.00>17:00 - 18:00</mat-option>
+                           <mat-option value=18.00>18:00 - 19:00</mat-option>
+                           <mat-option value=19.00>19:00 - 20:00</mat-option>
+                           <mat-option value=20.00>20:00 - 21:00</mat-option>
+                           <mat-option value=21.00>21:00 - 22:00</mat-option>
+                           <mat-option value=22.00>22:00 - 23:00</mat-option>
+                           <mat-option value=23.00>23:00 - 00:00</mat-option>
+                           <mat-option value=00.00>00:00 - 01:00 (día siguiente) </mat-option>
+                           <mat-option value=01.00>01:00 - 02:00 (día siguiente) </mat-option>
                          </mat-select>
                          <mat-hint>
                             <span *ngIf="this.formReserva.get('hora_ingreso')?.hasError?.('required')">
@@ -164,7 +164,7 @@
                          <input
                            matInput
                            placeholder=""
-                           type="number"
+                           type="text"
                            class="form-control"
                            formControlName="numero_personas"
                            [(ngModel)]="reserva.numero_personas"
@@ -314,6 +314,7 @@
             <!--Paso 2-->
                 <mat-step label="Información Cliente">
                  <div class="form-row">
+                  <form (ngSubmit)="submit()" [formGroup]="formReserva">
                    <!--Nombre completo-->
                    <div class="form-group col-md-12">
                       <p>
@@ -328,13 +329,14 @@
                              placeholder=""
                              type="text"
                              class="form-control"
-                             name="nombre_completo"
+                             formControlName="nombre_completo"
                              [(ngModel)]="reserva.nombre_completo"
                              required
                            />
                          </mat-form-field>
                          </p>
                 </div>
+              </form>
               </div>
               <div class="form-row">
                 <!--DUI-->
@@ -351,8 +353,9 @@
                         placeholder=""
                         type="text"
                         class="form-control"
-                        name="documento_identidad"
+                        formControlName="documento_identidad"
                         [(ngModel)]="reserva.documento_identidad"
+                        mask= "00000000-0"
                         required
                       />
                     </mat-form-field>
@@ -372,8 +375,9 @@
                         placeholder=""
                         type="text"
                         class="form-control"
-                        name="numero_contacto"
+                        formControlName="numero_contacto"
                         [(ngModel)]="reserva.numero_contacto"
+                        mask= "0000-0000"
                         required
                       />
                     </mat-form-field>
@@ -395,7 +399,7 @@
                         placeholder=""
                         type="text"
                         class="form-control"
-                        name="direccion"
+                        formControlName="direccion"
                         [(ngModel)]="reserva.direccion"
                         required
                       />
@@ -416,7 +420,7 @@
                         placeholder=""
                         type="email"
                         class="form-control"
-                        name="email"
+                        formControlName="email"
                         [(ngModel)]="reserva.email"
                         required
                       />
@@ -542,7 +546,7 @@
             
           </mat-horizontal-stepper>
         </mat-card>
-
+        </form>
       </div>
     </mat-card-content>
   </mat-sidenav-content>

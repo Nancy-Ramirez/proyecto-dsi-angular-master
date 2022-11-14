@@ -14,7 +14,6 @@
         <a
           mat-button
           routerLink="/login"
-          *ngIf="loginService.isLoggedIn$ | async"
           ><span class="material-icons"> login </span>Login</a
         >
       </span>
@@ -171,8 +170,7 @@
                         </td>
                         <td *ngIf="item.estado_habitacion==false">
                         <!--Capacidad de habitación-->
-                          {{item.fecha_disponibilidad}} at 
-                          {{item.hora_disponibilidad}}
+                          {{"No Disponible"}}
                         <td *ngIf="item.estado_habitacion==true">
                         <!--Capacidad de habitación-->
                          {{"Disponible"}}

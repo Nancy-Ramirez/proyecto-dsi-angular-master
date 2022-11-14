@@ -1,4 +1,4 @@
-h1 {
+h1, h3 {
   text-align: center;
 }
 .example-button-container {
@@ -57,4 +57,15 @@ mat-nav-list, .colorico {
 display: stretch;
 align-content: center;
   height: 590px;
+}
+button {
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+.centrar{
+  text-align: center;
+
 }

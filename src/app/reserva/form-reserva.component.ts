@@ -52,9 +52,6 @@ export class FormReservaComponent implements OnInit {
       hora_ingreso:['', [Validators.required]],
       numero_personas: ['', [Validators.required, Validators.maxLength(1), Validators.minLength(1)]],
       id_habitacion: ['', [Validators.required]],
-    });
-
-    this.formDatosCliente = this.formBuilder.group({
       nombre_completo: ['', [Validators.required, Validators.maxLength(200), Validators.minLength(3)]],
       numero_contacto: ['', [Validators.required, Validators.maxLength(8), Validators.minLength(8)]],
       documento_identidad: ['',[Validators.required, Validators.maxLength(9), Validators.minLength(9) ]],
@@ -73,7 +70,6 @@ export class FormReservaComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.formReserva.reset();
-    this.formDatosCliente.reset();
   }
 
   obtenerHab():void{
@@ -116,7 +112,7 @@ export class FormReservaComponent implements OnInit {
   }
 
   submit() {
-    if (this.formReserva.valid || this.formDatosCliente )
+    if (this.formReserva.valid )
       this.resultado = "Todos los datos son válidos";
     else
       this.resultado = "Hay datos inválidos en el formulario";

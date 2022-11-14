@@ -81,20 +81,18 @@ export class ReportesComponent implements OnInit {
   createPdfEmpleado() {
     const documentDefinition: any = {
       content: [
-        { text: 'Reporte de Empleados', style: 'header', fontSize: 20 },
+        { text: 'HOTEL MARBELLA', style: 'header', fontSize: 30, margin: [0, 20, 0, 8],  alignment: 'center', color:'#082468'},
+        { text: 'Reporte de Empleados', style: 'subheader', fontSize: 15, margin: [0,10, 0, 5], alignment: 'center'},
         {
           style: 'tableExample',
-          table: {
+          table: { 	heights: 40,
             body: [
               [
-                { text: 'Nombre', fillColor: '#555555', color: '#FFFFFF' },
-                { text: 'Apellido', fillColor: '#555555', color: '#FFFFFF' },
-                { text: 'Cargo', fillColor: '#555555', color: '#FFFFFF' },
-                {
-                  text: 'Departamento',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
+                { text: 'Nombre', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10], alignment: 'center' },
+                { text: 'Apellido', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10],  alignment: 'center' },
+                { text: 'Cargo', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10],  alignment: 'center'  },
+                { text: 'Departamento',fillColor: '#386ca0',color: '#FFFFFF', margin: [20, 10, 20, 10],  alignment: 'center' },
+                { text: 'Fecha de Contratación',fillColor: '#386ca0',color: '#FFFFFF', margin: [20, 5, 20, 5],  alignment: 'center' },
               ],
               ...this.obtenerEmpleado().map((e) => {
                 return [
@@ -102,16 +100,18 @@ export class ReportesComponent implements OnInit {
                   e.apellidos,
                   e.nombre_cargo,
                   e.nombre_departamento,
+                  e.fecha_contratacion
                 ];
               }),
             ],
           },
+          layout: 'lightHorizontalLines', alignment: 'center'
         },
       ],
       styles: [
         {
           header: {
-            fontSize: 50,
+            fontSize: 80,
             bold: true,
             color: 'blue',
             alignment: 'right',
@@ -127,6 +127,7 @@ export class ReportesComponent implements OnInit {
           tableExample: {
             fillColor: '#eee',
             margin: [0, 5, 0, 15],
+            alignment: 'center',
           },
         },
       ],
@@ -139,35 +140,28 @@ export class ReportesComponent implements OnInit {
   createPdfHabitaciones() {
     const documentDefinition: any = {
       content: [
-        { text: 'Reporte de Habitaciones', style: 'header', fontSize: 20 },
+        { text: 'HOTEL MARBELLA', style: 'header', fontSize: 30, margin: [0, 20, 0, 8],  alignment: 'center', color:'#082468'},
+        { text: 'Reporte de Habitaciones', style: 'subheader', fontSize: 15, margin: [0,10, 0, 5], alignment: 'center'},
         {
-          style: 'tableExample',
-          table: {
+          table: { heights: 40,
             body: [
               [
-                {
-                  text: 'Numero Habitación',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
-                { text: 'Numero Piso', fillColor: '#555555', color: '#FFFFFF' },
-                { text: 'Descripcion', fillColor: '#555555', color: '#FFFFFF' },
-                {
-                  text: 'Departamento',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
+                { text: 'Numero Habitación', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10], alignment: 'center'},
+                { text: 'Descripción', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10], alignment: 'center' },
+                { text: 'Precio $', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10], alignment: 'center'},
+                { text: 'Capacidad', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10], alignment: 'center' },
               ],
               ...this.habitaciones.map((e) => {
                 return [
                   e.numero_habitacion,
-                  e.precio,
-                  e.numero_piso,
                   e.descripcion_habitacion,
+                  e.precio,
+                  e.capacidad,
                 ];
               }),
             ],
           },
+          layout: 'lightHorizontalLines', alignment: 'center'
         },
       ],
       styles: [
@@ -201,43 +195,31 @@ export class ReportesComponent implements OnInit {
   createPdfReservas() {
     const documentDefinition: any = {
       content: [
-        { text: 'Reporte de Reservas', style: 'header', fontSize: 20 },
+        { text: 'HOTEL MARBELLA', style: 'header', fontSize: 30, margin: [0, 20, 0, 8],  alignment: 'center', color:'#082468'},
+        { text: 'Reporte de Reservas', style: 'subheader', fontSize: 15, margin: [0,10, 0, 5], alignment: 'center'},
         {
           style: 'tableExample',
-          table: {
+          table: { heights: 40,
             body: [
               [
-                {
-                  text: 'Fecha Ingreso',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
-                {
-                  text: 'Fecha Salida',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
-                {
-                  text: 'Numero de Personas',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
-                {
-                  text: 'Numero de Contacto',
-                  fillColor: '#555555',
-                  color: '#FFFFFF',
-                },
+                { text: 'Numero Habitación', fillColor: '#386ca0', color: '#FFFFFF', margin: [5, 10, 5, 10], alignment: 'center'},
+                { text: 'Fecha de entrada', fillColor: '#386ca0', color: '#FFFFFF', margin: [5, 10, 5, 10], alignment: 'center'},
+                { text: 'Fecha de salida', fillColor: '#386ca0', color: '#FFFFFF', margin: [5, 10, 5, 10], alignment: 'center'},
+                { text: 'Cliente', fillColor: '#386ca0', color: '#FFFFFF', margin: [20, 10, 20, 10], alignment: 'center'},
+                { text: 'Contacto', fillColor: '#386ca0', color: '#FFFFFF', margin: [5, 10, 5, 10], alignment: 'center'},
               ],
               ...this.reservaciones.map((e) => {
                 return [
+                  e.id_habitacion,
                   e.fecha_ingreso,
                   e.fecha_salida,
-                  e.numero_personas,
-                  e.numero_contacto,
+                  e.nombre_completo,
+                  e.numero_contacto
                 ];
               }),
             ],
-          },
+          }, 
+          layout: 'lightHorizontalLines', alignment: 'center'
         },
       ],
       styles: [
